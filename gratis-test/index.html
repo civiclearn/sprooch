@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="lb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gratis Test – Sproochentest Simulatioun | Sproochentest.org</title>
+
+  <meta name="description" content="Test Äert Lëtzebuergesch gratis mat enger Sproochentest-Simulatioun. 16 Héierversteesdemech-Froen mat direkte Resultater — ouni Umeldung.">
+  <link rel="canonical" href="https://sproochentest.org/gratis-test/">
+
+  <meta property="og:title" content="Gratis Sproochentest Simulatioun – Sproochentest.org">
+  <meta property="og:description" content="Probéiert eng Sproochentest-Simulatioun gratis: 16 Lauschterfroen mat direktem Feedback.">
+  <meta property="og:url" content="https://sproochentest.org/gratis-test/">
+
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/newhome.css">
+
+  <style>
+    .ft-wrap { max-width:780px; margin:2.5rem auto 4rem; padding:0 1.25rem; }
+    .ft-card { background:#fff; border-radius:1.5rem; padding:2.5rem 2.5rem 2rem; box-shadow:0 6px 28px rgba(0,0,0,0.08); }
+    @media(max-width:600px){ .ft-card{padding:1.5rem 1.25rem;} }
+
+    .ft-progress-bar { height:7px; background:#ede9fe; border-radius:999px; margin-bottom:1rem; overflow:hidden; }
+    .ft-progress-fill { height:100%; border-radius:999px; transition:width 0.35s ease; width:0%; }
+    #ft-progress-fill { background:linear-gradient(to right,#EF4135 0%,#EF4135 33%,#FFFFFF 33%,#FFFFFF 66%,#00A1DE 66%,#00A1DE 100%) !important; }
+    .ft-progress-text { font-size:0.88rem; color:#888; text-align:center; margin-bottom:1.75rem; }
+
+    .ft-section-badge { display:inline-block; font-size:0.78rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; padding:0.3rem 0.85rem; border-radius:999px; margin-bottom:1rem; }
+    .ft-section-badge.listening { background:#ecfdf5; color:#065f46; }
+
+    .ft-question-section { display:none; }
+    .ft-question-section.active { display:block; animation:ftFadeIn 0.28s ease; }
+    @keyframes ftFadeIn { from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:translateY(0);} }
+
+    .ft-task-title { font-size:1.1rem; font-weight:700; color:#1a1a1a; margin-bottom:0.3rem; }
+    .ft-prompt { font-size:1.05rem; font-weight:600; color:#1a1a1a; line-height:1.5; margin-bottom:1.25rem; }
+
+    .ft-audio-block { display:flex; align-items:center; gap:1rem; background:#f0fdf4; border:1.5px solid #bbf7d0; border-radius:1rem; padding:1rem 1.25rem; margin-bottom:1.5rem; }
+    .ft-audio-icon { font-size:1.6rem; flex-shrink:0; }
+    .ft-audio-block audio { flex:1; min-width:0; }
+    .ft-audio-note { font-size:0.82rem; color:#6b7280; margin-top:0.4rem; }
+
+    .ft-options { display:flex; flex-direction:column; gap:0.65rem; margin-bottom:1rem; }
+    .ft-option { padding:0.9rem 1.2rem; background:#fafafa; border:2px solid #e5e2db; border-radius:0.85rem; cursor:pointer; font-size:0.97rem; font-family:inherit; text-align:left; color:#333; transition:border-color 0.18s,background 0.18s; line-height:1.4; }
+    .ft-option:hover:not([disabled]) { background:#f3f0ff; border-color:#c4b5fd; }
+    .ft-option.selected { background:#ede9fe; border-color:#7c3aed; color:#5b21b6; font-weight:500; }
+    .ft-option.correct { background:#ecfdf5; border-color:#34d399; color:#065f46; }
+    .ft-option.wrong { background:#fef2f2; border-color:#fca5a5; color:#991b1b; }
+    .ft-option[disabled] { cursor:default; }
+
+    .ft-explanation { display:none; margin-top:0.5rem; margin-bottom:1.5rem; padding:0.9rem 1.1rem; border-radius:0.75rem; font-size:0.92rem; line-height:1.55; }
+    .ft-explanation.correct { background:#ecfdf5; border-left:3px solid #34d399; color:#065f46; }
+    .ft-explanation.wrong { background:#fef2f2; border-left:3px solid #f87171; color:#991b1b; }
+
+    .ft-nav { display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+    .ft-btn { padding:0.8rem 1.6rem; border-radius:999px; font-size:0.97rem; font-weight:600; font-family:inherit; cursor:pointer; border:none; transition:all 0.2s; }
+    .ft-btn-primary { background:#7c3aed; color:#fff; }
+    .ft-btn-primary:hover:not([disabled]) { background:#6d28d9; transform:translateY(-1px); }
+    .ft-btn-secondary { background:#ede9fe; color:#6d28d9; }
+    .ft-btn-secondary:hover:not([disabled]) { background:#ddd6fe; }
+    .ft-btn[disabled] { opacity:0.45; cursor:not-allowed; transform:none !important; }
+
+    .ft-welcome { text-align:center; }
+    .ft-welcome h1 { font-size:1.9rem; font-weight:700; color:#1a1a1a; margin-bottom:0.6rem; }
+    .ft-welcome .ft-sub { font-size:1.05rem; color:#555; margin-bottom:1.75rem; line-height:1.6; }
+    .ft-info-box { background:#f9f8ff; border-radius:1rem; padding:1.3rem 1.6rem; margin-bottom:2rem; text-align:left; }
+    .ft-info-box h3 { font-size:0.95rem; font-weight:700; color:#1a1a1a; margin-bottom:0.8rem; }
+    .ft-info-box ul { list-style:none; padding:0; margin:0; }
+    .ft-info-box li { font-size:0.93rem; color:#555; padding:0.4rem 0; display:flex; gap:0.5rem; }
+    .ft-info-box li::before { content:"✓"; color:#7c3aed; font-weight:700; flex-shrink:0; }
+
+    .ft-results { display:none; }
+    .ft-results.active { display:block; text-align:center; }
+    .ft-score-ring { width:160px; height:160px; border-radius:50%; margin:1.5rem auto; display:flex; align-items:center; justify-content:center; font-size:2.6rem; font-weight:800; color:#fff; background:linear-gradient(135deg,#7c3aed 0%,#a78bfa 100%); box-shadow:0 8px 28px rgba(124,58,237,0.28); }
+    .ft-results h2 { font-size:1.6rem; font-weight:700; color:#1a1a1a; margin-bottom:0.5rem; }
+    .ft-score-msg { font-size:1rem; color:#555; margin-bottom:1.5rem; }
+    .ft-breakdown { background:#f9f8ff; border-radius:1rem; padding:1.3rem 1.5rem; margin:1.5rem 0; text-align:left; }
+    .ft-breakdown h3 { font-size:0.95rem; font-weight:700; margin-bottom:0.9rem; color:#1a1a1a; }
+    .ft-breakdown-item { display:flex; justify-content:space-between; align-items:center; padding:0.65rem 0; border-bottom:1px solid #ede9fe; font-size:0.95rem; color:#444; }
+    .ft-breakdown-item:last-child { border-bottom:none; }
+    .ft-breakdown-item strong { color:#1a1a1a; }
+
+    .ft-cta-box { background:linear-gradient(135deg,#7c3aed 0%,#6d28d9 100%); color:#fff; border-radius:1.3rem; padding:1.8rem 2rem; margin-top:1.75rem; text-align:left; }
+    .ft-cta-box h3 { font-size:1.25rem; font-weight:700; margin-bottom:0.9rem; }
+    .ft-cta-box ul { list-style:none; padding:0; margin:0 0 1.4rem; }
+    .ft-cta-box li { font-size:0.95rem; padding:0.4rem 0; display:flex; gap:0.5rem; }
+    .ft-cta-box li::before { content:"✓"; font-weight:700; flex-shrink:0; }
+    .ft-btn-white { display:inline-block; background:#fff; color:#7c3aed; font-weight:700; padding:0.85rem 1.75rem; border-radius:999px; text-decoration:none; font-size:0.97rem; transition:background 0.2s; }
+    .ft-btn-white:hover { background:#f3f0ff; }
+    .ft-restart-btn { margin-top:1.25rem; }
+  </style>
+</head>
+
+<body>
+
+<header class="cl-header">
+  <div class="cl-header-inner">
+    <a href="/" class="cl-logo">
+      <img src="/assets/images/lu.svg" alt="LU" />
+      <span>Sproochentest.org</span>
+    </a>
+    <nav class="cl-nav">
+      <a href="/gratis-test/" class="active">Gratis Test</a>
+      <a href="/artikelen/">Artikelen</a>
+      <a href="/kontakt/">Kontakt</a>
+      <a href="https://civiclearn.com/sproochentest/login">Aloggen</a>
+    </nav>
+    <div class="cl-right">
+      <div class="cl-powered">powered by <span>CivicLearn</span></div>
+      <a href="https://civiclearn.com/sproochentest/checkout.html" class="cl-btn">Kompletten Zougang</a>
+    </div>
+  </div>
+</header>
+
+
+<div class="ft-wrap">
+  <div class="ft-card">
+
+    <!-- WELCOME -->
+    <div id="ft-welcome" class="ft-welcome">
+      <h1>Gratis Sproochentest-Simulatioun</h1>
+      <p class="ft-sub">
+        Test Äert Lëtzebuergesch mat Froen aus enger richteger Sproochentest-Simulatioun.<br>
+        Héierversteesdemech — genee wéi am richtegen Test.
+      </p>
+      <div class="ft-info-box">
+        <h3>Wat ass an dësem Test dran?</h3>
+        <ul>
+          <li>16 Héierversteesdemech-Froen (3 Audioen)</li>
+          <li>Automatesch Korrektur mat Erklärungen direkt</li>
+          <li>Keng Umeldung néideg</li>
+          <li>Dauert ongeféier 15 Minutten</li>
+        </ul>
+      </div>
+      <button class="ft-btn ft-btn-primary" onclick="startTest()">Test starten</button>
+    </div>
+
+    <!-- TEST -->
+    <div id="ft-test" style="display:none;">
+      <div class="ft-progress-bar">
+        <div id="ft-progress-fill" class="ft-progress-fill"></div>
+      </div>
+      <div id="ft-progress-text" class="ft-progress-text">Fro 1 vun 16</div>
+      <div id="ft-questions-container"></div>
+      <div class="ft-nav">
+        <button id="ft-prev-btn" class="ft-btn ft-btn-secondary" onclick="prevQuestion()" style="display:none;">← Zréck</button>
+        <button id="ft-next-btn" class="ft-btn ft-btn-primary" onclick="nextQuestion()" disabled>Weider →</button>
+        <button id="ft-submit-btn" class="ft-btn ft-btn-primary" onclick="submitTest()" style="display:none;" disabled>Resultater kucken</button>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="ft-results" class="ft-results">
+      <h2>Test ofgeschloss!</h2>
+      <div class="ft-score-ring">
+        <span id="ft-final-score">0%</span>
+      </div>
+      <p id="ft-score-msg" class="ft-score-msg"></p>
+
+      <div class="ft-breakdown">
+        <h3>Resultater am Detail</h3>
+        <div class="ft-breakdown-item">
+          <span>🎧 Industrie-Expo</span>
+          <strong id="ft-score-t1">0/5</strong>
+        </div>
+        <div class="ft-breakdown-item">
+          <span>🎧 De Frigo ass futti</span>
+          <strong id="ft-score-t2">0/4</strong>
+        </div>
+        <div class="ft-breakdown-item">
+          <span>🎧 Zuchbegleeder</span>
+          <strong id="ft-score-t3">0/7</strong>
+        </div>
+        <div class="ft-breakdown-item" style="border-top:2px solid #ddd6fe;padding-top:0.8rem;">
+          <span><strong>Total</strong></span>
+          <strong id="ft-score-total">0/16</strong>
+        </div>
+      </div>
+
+      <div class="ft-cta-box">
+        <h3>Prett fir de ganzen Test?</h3>
+        <ul>
+          <li>10 komplett Sproochentest-Simulatiounen</li>
+          <li>Héierversteesdemech + Mëndlechen Ausdrock</li>
+          <li>AI-Evaluéierung vun Äre Schwätzübungen mat detailléiertem Feedback</li>
+          <li>Detailléiert Statistiken an Fortschrëtter</li>
+          <li>Funktionéiert op allen Apparater</li>
+        </ul>
+        <a href="https://civiclearn.com/sproochentest/checkout.html" class="ft-btn-white">Kompletten Zougang kréien</a>
+      </div>
+
+      <button class="ft-btn ft-btn-secondary ft-restart-btn" onclick="restartTest()">Test nach eng Kéier maachen</button>
+    </div>
+
+  </div>
+</div>
+
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© <span id="footer-year"></span> Sproochentest.org — Member vum CivicLearn-Netzwierk.</div>
+    <div class="footer-links">
+      <a href="/gratis-test/">Gratis Test</a>
+      <a href="/artikelen/">Artikelen</a>
+      <a href="/kontakt/">Kontakt</a>
+      <a href="/politiken/">Politiken</a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+// ================================================================
+// LISTENING DATA
+// ================================================================
+var LISTENING_TASKS = [
+  {
+    task_id:"t1", title:"Grouss Industrie-Expo zu Lëtzebuerg",
+    audio_url:"/assets/audio/11.-Grouss-Industrie-Expo.m4a",
+    questions:[
+      { id:"q1", prompt:"Wat fënnt dës Woch zu Lëtzebuerg statt?",
+        options:[{id:"a",text:"Déi gréisst Industrie-Expo vum Joer."},{id:"b",text:"Eng international Tech-Messe mat Fokus op Start-ups."},{id:"c",text:"Eng Handelsfoire fir lokal Produzenten."}],
+        correct:"a", explanations:{a:"Bravo! Dat ass richteg. Den Audio seet, datt déi gréisst Industrie-Expo vum Joer stattfënnt.",b:"Falsch. Den Audio schwätzt vun enger Industrie-Expo, net enger Tech-Messe.",c:"Falsch. Den Audio schwätzt vun enger Industrie-Expo, net enger Handelsfoire."} },
+      { id:"q2", prompt:"Wien presentéiert hir nei Innovatiounen an Technologien?",
+        options:[{id:"a",text:"Déi wichtegst Entreprisen aus der Groussregioun."},{id:"b",text:"Technologie-Sektioune vun Universitéiten."},{id:"c",text:"Privat Konsumenten, déi nei Gadgeten ausprobéieren."}],
+        correct:"a", explanations:{a:"Bravo! Déi wichtegst Entreprisen aus der Groussregioun presentéieren hir Innovatiounen.",b:"Falsch. Den Audio schwätzt vun Entreprisen, net vun Universitéiten.",c:"Falsch. Privat Konsumenten presentéieren keng Innovatiounen op enger Industrie-Expo."} },
+      { id:"q3", prompt:"Wat sinn grouss Themen op dësem Event?",
+        options:[{id:"a",text:"Automatisatioun an d'künstlech Intelligenz."},{id:"b",text:"Innovativ Energieléisungen an nohalteg Mobilitéit."},{id:"c",text:"Nei Logistik-Technologien an Transportinnovatiounen."}],
+        correct:"a", explanations:{a:"Bravo! Automatisatioun an d'künstlech Intelligenz si grouss Themen op dësem Event.",b:"Falsch. Den Audio schwätzt vun Automatisatioun an kënschtlecher Intelligenz.",c:"Falsch. Den Audio schwätzt vun Automatisatioun an kënschtlecher Intelligenz."} },
+      { id:"q4", prompt:"Wéi eng bekannt Nimm aus der Branche sinn vertrueden?",
+        options:[{id:"a",text:"LuxTech Industries an EuroRobotics Solutions."},{id:"b",text:"RoboTech Europe an AI Solutions Luxembourg."},{id:"c",text:"GreenTech Industries an FutureTransport Systems."}],
+        correct:"a", explanations:{a:"Bravo! LuxTech Industries an EuroRobotics Solutions sinn am Audio erwähnt.",b:"Falsch. Dës Entreprisen sinn net am Audio erwähnt.",c:"Falsch. Dës Entreprisen sinn net am Audio erwähnt."} },
+      { id:"q5", prompt:"Wat maachen d'Fachleit an d'Entrepreneuren?",
+        options:[{id:"a",text:"Si treffen sech, fir nei Geschäftsméiglechkeeten ze diskutéieren."},{id:"b",text:"Si plangen nei industriell Partnerschaften."},{id:"c",text:"Si besichen interaktiv Workshops iwwer digital Transformatioun."}],
+        correct:"a", explanations:{a:"Bravo! Si treffen sech, fir nei Geschäftsméiglechkeeten ze diskutéieren.",b:"Falsch. Den Audio seet, datt si sech treffen fir Geschäftsméiglechkeeten ze diskutéieren.",c:"Falsch. Den Audio seet, datt si sech treffen fir Geschäftsméiglechkeeten ze diskutéieren."} }
+    ]
+  },
+  {
+    task_id:"t2", title:"De Frigo ass futti",
+    audio_url:"/assets/audio/11.-De-Frigo-as-futti.m4a",
+    questions:[
+      { id:"q6", prompt:"Wat freet de Mann, ier hien en Techniker schéckt?",
+        options:[{id:"a",text:"D'Mark an de Modell vum Frigo."},{id:"b",text:"Wéini de Frigo kaf gouf."},{id:"c",text:"Ob d'Fra de Frigo selwer probéiert huet ze reparéieren."}],
+        correct:"a", explanations:{a:"Bravo! De Mann freet no der Mark an dem Modell.",b:"Falsch. Dat gëtt net am Gespréich gefrot.",c:"Falsch. Dat gëtt net am Gespréich gefrot."} },
+      { id:"q7", prompt:"Wéini kann den Techniker kommen?",
+        options:[{id:"a",text:"Nächste Mëttwoch oder Donneschdeg."},{id:"b",text:"Nächsten Donneschdeg oder Freideg."},{id:"c",text:"Dëse Mëttwoch oder Dënschdeg."}],
+        correct:"a", explanations:{a:"Bravo! Den Techniker kann nächste Mëttwoch oder Donneschdeg kommen.",b:"Falsch. Freideg gëtt net als Optioun genannt.",c:"Falsch. Et geet ëm nächste Mëttwoch an Donneschdeg."} },
+      { id:"q8", prompt:"Wéini passt der Fra den Techniker am beschten?",
+        options:[{id:"a",text:"Donneschdeg."},{id:"b",text:"Egal, si ass flexibel."},{id:"c",text:"Mëttwoch, mee Donneschdeg ass och okay."}],
+        correct:"a", explanations:{a:"Bravo! D'Fra seet: Donneschdeg passt mir besser.",b:"Falsch. D'Fra seet spezifesch Donneschdeg.",c:"Falsch. D'Fra huet Donneschdeg gewielt."} },
+      { id:"q9", prompt:"Wat ass de Problem mat dem Frigo?",
+        options:[{id:"a",text:"En hält net méi richteg kal."},{id:"b",text:"En ass komplett futti."},{id:"c",text:"En mécht komesch Geräischer."}],
+        correct:"a", explanations:{a:"Bravo! De Frigo hält net méi richteg kal.",b:"Falsch. En ass net komplett futti, en hält just net méi richteg kal.",c:"Falsch. D'Fra seet näischt iwwer komesch Geräischer."} }
+    ]
+  },
+  {
+    task_id:"t3", title:"En ongewéinlechen Zuchbegleeder",
+    audio_url:"/assets/audio/11.-Zuchbegleeder.m4a",
+    questions:[
+      { id:"q10", prompt:"Wou pendelt de Protagonist all Dag?",
+        options:[{id:"a",text:"Vun Ettelbréck op Lëtzebuerg-Stad."},{id:"b",text:"Vun der Stad op Esch."},{id:"c",text:"Vun engem Duerf bei Iechternach an d'Stad."}],
+        correct:"a", explanations:{a:"Bravo! Hie pendelt vun Ettelbréck op Lëtzebuerg-Stad mat der CFL.",b:"Falsch. Et ass vun Ettelbréck an d'Stad.",c:"Falsch. Et ass vun Ettelbréck an d'Stad."} },
+      { id:"q11", prompt:"Wat mécht de Protagonist normalerweis am Zuch?",
+        options:[{id:"a",text:"Hien liest oder lauschtert Musek."},{id:"b",text:"Hien schwätzt mat anere Passagéieren."},{id:"c",text:"Hien schafft um Laptop."}],
+        correct:"a", explanations:{a:"Bravo! Hien liest oder lauschtert Musek.",b:"Falsch. Den Audio seet, datt hien liest oder Musek lauschtert.",c:"Falsch. Den Audio seet, datt hien liest oder Musek lauschtert."} },
+      { id:"q12", prompt:"Wat ass dem Protagonist enges Dags am Zuch opgefall?",
+        options:[{id:"a",text:"Eng Persoun mat engem ongewéinlechen Hutt."},{id:"b",text:"E Problem mat der Klimaanlag."},{id:"c",text:"Eng Verspéidung."}],
+        correct:"a", explanations:{a:"Bravo! Hien huet eng Persoun mat engem ongewéinlechen Hutt gesinn.",b:"Falsch. Et goung ëm eng ongewéinlech Persoun.",c:"Falsch. Et goung ëm eng ongewéinlech Persoun."} },
+      { id:"q13", prompt:"Wat huet de Mann am Zuch gemaach?",
+        options:[{id:"a",text:"Hien huet mat jidderengem geschwat an witzeg Geschichten erzielt."},{id:"b",text:"Hien huet e Buch gelies."},{id:"c",text:"Hien huet geschlof."}],
+        correct:"a", explanations:{a:"Bravo! Hien huet mat jidderengem geschwat an witzeg Geschichten erzielt.",b:"Falsch. Hien huet geschwat, net gelies.",c:"Falsch. Hien huet geschwat, net geschlof."} },
+      { id:"q14", prompt:"Wéi hunn d'Leit am Coupé reagéiert?",
+        options:[{id:"a",text:"Si hunn all gelaacht."},{id:"b",text:"Si waren genervt."},{id:"c",text:"Si hunn hien ignoréiert."}],
+        correct:"a", explanations:{a:"Bravo! D'Leit hunn all gelaacht.",b:"Falsch. Si hunn gelaacht, net genervt reagéiert.",c:"Falsch. Si hunn gelaacht, net ignoréiert."} },
+      { id:"q15", prompt:"Wat huet de Protagonist iwwer de Mann erausfonnt?",
+        options:[{id:"a",text:"Datt hien e Komiker war."},{id:"b",text:"Datt hien e Museker war."},{id:"c",text:"Datt hien e Schrëftsteller war."}],
+        correct:"a", explanations:{a:"Bravo! Hien war e Komiker.",b:"Falsch. Hien war e Komiker, keen Museker.",c:"Falsch. Hien war e Komiker, kee Schrëftsteller."} },
+      { id:"q16", prompt:"Wéi war d'Zuchfahrt fir de Protagonist?",
+        options:[{id:"a",text:"Ongewéinlech, awer ganz lëschteg."},{id:"b",text:"Langweileg."},{id:"c",text:"Stressvoll."}],
+        correct:"a", explanations:{a:"Bravo! Et war eng ongewéinlech, awer ganz lëschteg Zuchfahrt.",b:"Falsch. D'Zuchfahrt war lëschteg, net langweileg.",c:"Falsch. D'Zuchfahrt war lëschteg, net stressvoll."} }
+    ]
+  }
+];
+
+// ================================================================
+// SHUFFLE (Fisher-Yates)
+// ================================================================
+function shuffle(arr) {
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
+
+// ================================================================
+// BUILD FLAT LIST (shuffled options)
+// ================================================================
+function buildSteps() {
+  var steps = [];
+  LISTENING_TASKS.forEach(function(task) {
+    task.questions.forEach(function(q, qi) {
+      steps.push({
+        task_id: task.task_id,
+        task_title: task.title,
+        audio_url: task.audio_url,
+        showAudio: qi === 0,
+        id: q.id,
+        prompt: q.prompt,
+        options: shuffle(q.options),
+        correct: q.correct,
+        explanations: q.explanations || {}
+      });
+    });
+  });
+  return steps;
+}
+
+var TEST_STEPS = buildSteps();
+var TOTAL = TEST_STEPS.length;
+
+// ================================================================
+// STATE
+// ================================================================
+var currentIndex = 0;
+var userAnswers = {};
+var answeredCorrectly = {};
+
+function startTest() {
+  document.getElementById("ft-welcome").style.display = "none";
+  document.getElementById("ft-test").style.display = "block";
+  renderQuestions();
+  showQuestion(0);
+}
+
+function restartTest() {
+  currentIndex = 0;
+  userAnswers = {};
+  answeredCorrectly = {};
+  TEST_STEPS = buildSteps();
+  document.getElementById("ft-results").classList.remove("active");
+  document.getElementById("ft-test").style.display = "none";
+  document.getElementById("ft-welcome").style.display = "block";
+  document.getElementById("ft-questions-container").innerHTML = "";
+}
+
+// ================================================================
+// RENDER
+// ================================================================
+function renderQuestions() {
+  var container = document.getElementById("ft-questions-container");
+  container.innerHTML = "";
+
+  TEST_STEPS.forEach(function(step, idx) {
+    var sec = document.createElement("div");
+    sec.className = "ft-question-section";
+    sec.id = "ft-q-" + idx;
+
+    var html = '<span class="ft-section-badge listening">Héierversteesdemech</span>';
+    html += '<div class="ft-task-title">' + escapeHtml(step.task_title) + '</div>';
+
+    if (step.showAudio) {
+      html += '<div class="ft-audio-block">';
+      html += '<span class="ft-audio-icon">🔊</span>';
+      html += '<div style="flex:1;min-width:0;">';
+      html += '<audio controls preload="none" style="width:100%;">';
+      html += '<source src="' + step.audio_url + '" type="audio/mp4">';
+      html += 'Äre Browser ënnerstëtzt keen Audio.</audio>';
+      html += '<div class="ft-audio-note">Lauschtert den Audio a beäntwert d\'Froen. Dir kënnt méi dacks lauschteren.</div>';
+      html += '</div></div>';
+    }
+
+    html += '<div class="ft-prompt">' + escapeHtml(step.prompt) + '</div>';
+    html += '<div class="ft-options">';
+    step.options.forEach(function(opt) {
+      html += '<button class="ft-option"'
+        + ' data-qid="' + step.id + '"'
+        + ' data-oid="' + opt.id + '"'
+        + ' onclick="selectOption(\'' + step.id + '\',\'' + opt.id + '\',this,' + idx + ')">'
+        + escapeHtml(opt.text) + '</button>';
+    });
+    html += '</div>';
+    html += '<div id="ft-expl-' + idx + '" class="ft-explanation"></div>';
+
+    sec.innerHTML = html;
+    container.appendChild(sec);
+  });
+}
+
+// ================================================================
+// SELECTION (instant feedback)
+// ================================================================
+function selectOption(qid, oid, btn, stepIdx) {
+  if (userAnswers[qid]) return;
+  var step = TEST_STEPS[stepIdx];
+  userAnswers[qid] = oid;
+
+  document.querySelectorAll('[data-qid="' + qid + '"]').forEach(function(el) { el.disabled = true; });
+
+  var isCorrect = (oid === step.correct);
+  if (isCorrect) {
+    btn.classList.add("correct");
+    answeredCorrectly[qid] = true;
+  } else {
+    btn.classList.add("wrong");
+    answeredCorrectly[qid] = false;
+    var cb = document.querySelector('[data-qid="' + qid + '"][data-oid="' + step.correct + '"]');
+    if (cb) cb.classList.add("correct");
+  }
+
+  var explDiv = document.getElementById("ft-expl-" + stepIdx);
+  if (explDiv && step.explanations[oid]) {
+    explDiv.textContent = step.explanations[oid];
+    explDiv.className = "ft-explanation " + (isCorrect ? "correct" : "wrong");
+    explDiv.style.display = "block";
+  }
+
+  document.getElementById("ft-next-btn").disabled = false;
+  if (currentIndex === TOTAL - 1) document.getElementById("ft-submit-btn").disabled = false;
+}
+
+// ================================================================
+// NAVIGATION
+// ================================================================
+function showQuestion(idx) {
+  document.querySelectorAll(".ft-question-section").forEach(function(el) { el.classList.remove("active"); });
+  document.getElementById("ft-q-" + idx).classList.add("active");
+  currentIndex = idx;
+  updateProgress();
+  updateNavButtons();
+}
+function nextQuestion() { if (currentIndex < TOTAL - 1) showQuestion(currentIndex + 1); }
+function prevQuestion() { if (currentIndex > 0) showQuestion(currentIndex - 1); }
+
+function updateProgress() {
+  var pct = ((currentIndex + 1) / TOTAL) * 100;
+  document.getElementById("ft-progress-fill").style.width = pct + "%";
+  document.getElementById("ft-progress-text").textContent = "Fro " + (currentIndex + 1) + " vun " + TOTAL;
+}
+
+function updateNavButtons() {
+  var prev = document.getElementById("ft-prev-btn");
+  var next = document.getElementById("ft-next-btn");
+  var submit = document.getElementById("ft-submit-btn");
+  var hasAnswer = !!userAnswers[TEST_STEPS[currentIndex].id];
+
+  prev.style.display = currentIndex > 0 ? "block" : "none";
+
+  if (currentIndex === TOTAL - 1) {
+    next.style.display = "none";
+    submit.style.display = "block";
+    submit.disabled = !hasAnswer;
+  } else {
+    next.style.display = "block";
+    submit.style.display = "none";
+    next.disabled = !hasAnswer;
+  }
+}
+
+// ================================================================
+// SUBMIT
+// ================================================================
+function submitTest() {
+  var scores = {t1:0, t2:0, t3:0};
+  var totals = {t1:0, t2:0, t3:0};
+  var totalCorrect = 0;
+
+  TEST_STEPS.forEach(function(step) {
+    totals[step.task_id]++;
+    if (answeredCorrectly[step.id]) { scores[step.task_id]++; totalCorrect++; }
+  });
+
+  var pct = Math.round((totalCorrect / TOTAL) * 100);
+
+  document.getElementById("ft-test").style.display = "none";
+  document.getElementById("ft-results").classList.add("active");
+
+  document.getElementById("ft-final-score").textContent = pct + "%";
+  document.getElementById("ft-score-t1").textContent = scores.t1 + "/" + totals.t1;
+  document.getElementById("ft-score-t2").textContent = scores.t2 + "/" + totals.t2;
+  document.getElementById("ft-score-t3").textContent = scores.t3 + "/" + totals.t3;
+  document.getElementById("ft-score-total").textContent = totalCorrect + "/" + TOTAL;
+
+  var msg = "";
+  if (pct >= 80) msg = "Exzellent! Dir sidd gutt virbereet fir de Sproochentest.";
+  else if (pct >= 60) msg = "Gutt gemaach! Trainéiert weider fir e séchert Resultat.";
+  else if (pct >= 40) msg = "Dir sidd um gudde Wee — méi Training bréngt méi Resultater.";
+  else msg = "Weider üben — reegelméisseg Training bréngt grouss Fortschrëtter!";
+
+  document.getElementById("ft-score-msg").textContent = msg;
+}
+
+// ================================================================
+// UTILS
+// ================================================================
+function escapeHtml(str) {
+  return str.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+document.getElementById("footer-year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

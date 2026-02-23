@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /assets/
+Disallow: /checkout.html
+
+Sitemap: https://sproochentest.org/sitemap.xml

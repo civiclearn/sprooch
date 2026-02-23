@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
+  <url><loc>https://sproochentest.org/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://sproochentest.org/artikelen/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sproochentest.org/gratis-test/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sproochentest.org/kontakt/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://sproochentest.org/politiken/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+
+  <!-- Articles — English -->
+  <url><loc>https://sproochentest.org/what-is-the-sproochentest/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sproochentest.org/tips-learning-luxembourgish-sproochentest/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sproochentest.org/essential-expressions-sproochentest-speaking-test/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sproochentest.org/false-friends-luxembourgish/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sproochentest.org/describing-people-luxembourgish/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sproochentest.org/dwieder-talking-about-the-weather-the-luxembourgish-way/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sproochentest.org/separable-verbs-in-luxembourgish-sproochentest/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Articles — French -->
+  <url><loc>https://sproochentest.org/le-sproochentest-au-luxembourg-comprendre-lepreuve-obligatoire-pour-la-nationalite/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sproochentest.org/faux-amis-luxembourgeois/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sproochentest.org/conseils-reussir-sproochentest/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sproochentest.org/preparer-sproochentest/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Articles — German -->
+  <url><loc>https://sproochentest.org/sproochentest-luxemburg-staatsbuergerschaft/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sproochentest.org/vorbereitung-sproochentest-tipps/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sproochentest.org/typische-fehler-sproochentest/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Articles — Russian -->
+  <url><loc>https://sproochentest.org/podgotovka-sproochentest-lyuksemburg/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sproochentest.org/sproochentest-grazhdanstvo-lyuksemburg/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+</urlset>

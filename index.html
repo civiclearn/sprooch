@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="lb">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sproochentest Preparatioun – Lëtzebuergesch Nationalitéit (2026)</title>
+  <meta name="description" content="Bereet Iech op de Sproochentest vir mat komplette Simulatiounen fir Héierversteesdemech a Mëndlechen Ausdrock. Kritt d'Lëtzebuerger Nationalitéit.">
+  <meta name="keywords" content="Sproochentest, Lëtzebuergesch, Nationalitéit, Luxembourg, INLL, Héierversteesdemech, Mëndlechen Ausdrock, A2, B1, Vivre au Luxembourg">
+  <link rel="canonical" href="https://sproochentest.org/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="lb_LU">
+  <meta property="og:title" content="Sproochentest Preparatioun – Sproochentest.org">
+  <meta property="og:description" content="Trainéiert mat realisteschen Simulatiounen a bereet Iech op de Sproochentest vir fir d'Lëtzebuerger Nationalitéit.">
+  <meta property="og:url" content="https://sproochentest.org/">
+  <meta property="og:image" content="https://sproochentest.org/assets/images/og-default.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sproochentest Preparatioun – Sproochentest.org">
+  <meta name="twitter:description" content="Trainéiert mat komplette Simulatiounen a bereet Iech op de Sproochentest vir.">
+  <meta name="twitter:image" content="https://sproochentest.org/assets/images/og-default.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Sproochentest.org",
+    "url": "https://sproochentest.org/",
+    "description": "Plattform fir d'Preparatioun op de Sproochentest mat komplette Simulatiounen fir Héierversteesdemech a Mëndlechen Ausdrock.",
+    "logo": "https://sproochentest.org/assets/images/lu.svg",
+    "sameAs": ["https://civiclearn.com/sproochentest/"]
+  }
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/newhome.css">
+  <style>
+    .features-grid{grid-template-columns:repeat(2,1fr);max-width:860px;margin-left:auto;margin-right:auto}
+
+    /* ===== TWO-TIER PRICING ===== */
+    .premium-pricing{margin-top:3rem;text-align:center}
+    .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:860px;margin:0 auto;align-items:start}
+    .pricing-card{background:#fff;border-radius:1.6rem;overflow:hidden;box-shadow:0 16px 34px rgba(0,0,0,.08);position:relative;transition:transform .2s ease,box-shadow .2s ease}
+    .pricing-card:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(0,0,0,.12)}
+    .pricing-card--recommended{border:2.5px solid #7c3aed}
+    .pricing-badge{position:absolute;top:-1px;right:1.2rem;background:#7c3aed;color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.03em;padding:.4rem .9rem .5rem;border-radius:0 0 .7rem .7rem;z-index:2}
+    .pricing-top{background:linear-gradient(135deg,#efe8ff 0%,#dcc9ff 100%);padding:2rem 1rem 2.2rem}
+    .pricing-card--recommended .pricing-top{background:linear-gradient(135deg,#e0d4ff 0%,#c4a7ff 100%)}
+    .pricing-tag{background:rgba(255,255,255,.65);padding:.45rem 1.2rem;border-radius:999px;font-size:.85rem;font-weight:600;color:#5b21b6;backdrop-filter:blur(6px);display:inline-block}
+    .pricing-price{padding:1.5rem 1rem .6rem}
+    .pricing-price .amount{font-size:2.4rem;font-weight:700;color:#1a1a1a}
+    .pricing-price .amount-old{font-size:1.3rem;font-weight:500;color:#999;text-decoration:line-through;margin-right:.4rem}
+    .pricing-price .subtitle{font-size:.95rem;color:#555;margin-top:.3rem}
+    .pricing-price .savings{display:inline-block;margin-top:.5rem;background:#ecfdf5;color:#047857;font-size:.82rem;font-weight:600;padding:.3rem .8rem;border-radius:999px}
+    .pricing-divider{width:82%;margin:1.2rem auto;height:1px;background:rgba(0,0,0,.07)}
+    .feature-list{list-style:none;margin:.8rem 0 0;padding:0 1.6rem;text-align:left}
+    .feature-list li{position:relative;padding-left:1.4rem;font-size:.88rem;font-weight:500;color:#333;line-height:1.45;margin-bottom:.55rem}
+    .feature-list li::before{content:"";position:absolute;left:0;top:.32rem;width:.95rem;height:.95rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.5 10.5 8 14l7.5-8.5' stroke='%236D4AFF' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");background-size:100% 100%;background-repeat:no-repeat;opacity:.9}
+    .feature-list li.is-bonus{color:#5b21b6;font-weight:600}
+    .pricing-cta{display:block;width:100%;background:#7c3aed;color:#fff;padding:1.05rem;text-decoration:none;margin-top:1.4rem;font-size:1rem;font-weight:600;border-radius:0;transition:background .2s ease}
+    .pricing-cta:hover{background:#5b21b6}
+    .pricing-cta--outline{background:transparent;color:#7c3aed;border-top:2px solid #ede9fe}
+    .pricing-cta--outline:hover{background:#f5f3ff;color:#5b21b6}
+    .pricing-guarantee{margin-top:1.4rem;font-size:.9rem;color:#666}
+    @media(max-width:700px){.pricing-grid{grid-template-columns:1fr;max-width:420px}.pricing-card{margin:0}.feature-list{padding:0 1.2rem}}
+
+    /* Luxembourg flag progress bar */
+    #inline-progressbar{background:linear-gradient(to right,#EF3340 0%,#EF3340 33.3%,#FFFFFF 33.3%,#FFFFFF 66.6%,#00A1DE 66.6%,#00A1DE 100%) !important}
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="cl-header">
+  <div class="cl-header-inner">
+    <a href="/" class="cl-logo">
+      <img src="/assets/images/lu.svg" alt="LU" />
+      <span>Sproochentest.org</span>
+    </a>
+    <nav class="cl-nav">
+      <a href="/gratis-test/">Gratis Test</a>
+      <a href="/artikelen/">Artikelen</a>
+      <a href="/kontakt/">Kontakt</a>
+      <a href="https://civiclearn.com/sproochentest/login">Aloggen</a>
+    </nav>
+    <div class="cl-right">
+      <div class="cl-powered">powered by <span>CivicLearn</span></div>
+      <a href="https://civiclearn.com/sproochentest/checkout.html" class="cl-btn">Kompletten Zougang</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <section class="exam-status">
+    <div class="exam-status-inner">
+      <div class="exam-status-row">
+        <div class="exam-status-counter" id="status-test-counter">
+          <span class="count-number">—</span>
+          <span class="count-unit">DEEG</span>
+        </div>
+        <div class="exam-status-text">
+          <p class="exam-status-sentence" id="status-test-text">
+            Déi nächst Sproochentest-Sessioun ass den <strong>20. Mee 2026</strong> — INLL Glacis.
+          </p>
+        </div>
+      </div>
+      <div class="exam-status-row exam-status-row--registration">
+        <div class="exam-status-counter" id="status-reg-counter">
+          <span class="count-number">—</span>
+          <span class="count-unit">DEEG</span>
+        </div>
+        <div class="exam-status-text">
+          <p class="exam-status-sentence" id="status-reg-text">
+            D'Umeldung fir dës Sessioun schléisst den <strong>13. Abrëll 2026</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hero-center hero-center--spaced">
+    <h1 class="hero-title">
+      <span>Bereet Iech op de Sproochentest vir<br></span>
+      a kritt d'Lëtzebuerger Nationalitéit
+    </h1>
+    <p class="hero-subtitle">
+      Komplett Simulatiounen fir Héierversteesdemech a Mëndlechen Ausdrock.<br>
+      Trainéiert an Äerem Tempo a passéiert den Test mat Vertrauen.
+    </p>
+    <div class="hero-actions">
+      <a href="https://civiclearn.com/sproochentest/checkout.html" class="hero-primary-btn">Elo ufänken ze trainéieren</a>
+      <a href="/gratis-test/" class="hero-secondary-btn">Gratis Simulatioun probéieren</a>
+    </div>
+    <div class="hero-social">
+      <span class="rating-stars">★★★★★</span>
+      <span class="rating-word">Excellent</span>
+      <span class="rating-subtext">Dausende vu Kandidaten preparéiert duerch d'CivicLearn-Netzwierk.</span>
+    </div>
+    <div class="hero-image-wide">
+      <img src="/assets/images/devices-sproochentest.webp" alt="Sproochentest Plattform op verschiddenen Apparater">
+    </div>
+  </div>
+</section>
+
+
+<!-- FEATURES: EXAM COMPONENTS -->
+<section class="features-section">
+  <div class="section-heading">
+    <div class="section-kicker">D'Deeler vum Examen</div>
+    <h2 class="section-title">De Sproochentest huet 2 Deeler</h2>
+    <p class="section-lead">
+      De Sproochentest préift Äert Versteesdemech vum Lëtzebuergeschen (B1) an Är Fäegkeet fir ze schwätzen (A2).
+      Trainéiert béid Deeler gezielt fir mat Sécherheet an den Examen ze goen.
+    </p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card" onclick="location.href='/gratis-test/'">
+      <a href="/gratis-test/" class="feature-card-link feature-card--data">
+        <div class="feature-metric">
+          <span class="metric-number">B1</span>
+          <span class="metric-label">~25 MINUTTEN</span>
+        </div>
+        <h3 class="feature-title">Héierversteesdemech</h3>
+        <p class="feature-text">
+          Lauschtert dräi Opnamen op Lëtzebuergesch — Noriichten, Gespréicher a Presentatiounen — a beäntwert Multiple-Choice-Froen.
+          Dësen Deel préift Äert Versteesdemech op Niveau B1.
+        </p>
+        <div class="feature-cta">Gratis Test <span class="arrow">›</span></div>
+      </a>
+    </div>
+    <div class="feature-card" onclick="location.href='/gratis-test/'">
+      <a href="/gratis-test/" class="feature-card-link feature-card--data">
+        <div class="feature-metric">
+          <span class="metric-number">A2</span>
+          <span class="metric-label">~10 MINUTTEN</span>
+        </div>
+        <h3 class="feature-title">Mëndlechen Ausdrock</h3>
+        <p class="feature-text">
+          Schwätzt iwwer en Thema mat dem Examinateur (z.B. Famill, Aarbecht, Fräizäit) a beschreift eng Foto.
+          Dësen Deel préift Är mëndlech Ausdrocksfäegkeet op Niveau A2.
+        </p>
+        <div class="feature-cta">Gratis Test <span class="arrow">›</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- INLINE TEST (QUIZ) -->
+<section class="inline-test">
+  <div class="inline-test-inner">
+    <h2 class="inline-test-heading">Test Är Wëssen</h2>
+    <p class="inline-test-lead">Dräi séier Froen fir ze kucken ob Dir prett sidd</p>
+    <div id="inline-test-questions"></div>
+    <div class="inline-progressbar-wrapper">
+      <div class="inline-progressbar" id="inline-progressbar"></div>
+    </div>
+    <div class="inline-cta-row">
+      <div class="upper-cta-wrapper">
+        <a href="/gratis-test/" class="btn-secondary-cta">Méi Übungen →</a>
+      </div>
+      <a href="https://civiclearn.com/sproochentest/checkout.html" class="hero-primary-btn">Kont erstellen</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- PRICING: TWO TIERS -->
+<section class="premium-pricing">
+  <div class="section-heading">
+    <div class="section-kicker">Pläng a Präisser</div>
+    <h2 class="section-title">Wielt Äre Plang</h2>
+    <p class="section-lead">Eemolege Bezuelung. Keen Abonnement. Liewenszäit-Zougang.</p>
+  </div>
+
+  <div class="pricing-grid">
+
+    <!-- TIER 1: SPROOCHENTEST ONLY -->
+    <div class="pricing-card">
+      <div class="pricing-top">
+        <span class="pricing-tag">Sproochentest</span>
+      </div>
+      <div class="pricing-price">
+        <div class="amount">69 €</div>
+        <div class="subtitle">Eemolege Bezuelung — Zougang fir ëmmer</div>
+      </div>
+      <div class="pricing-divider"></div>
+      <ul class="feature-list">
+        <li>10 komplett Sproochentest-Simulatiounen</li>
+        <li>Héierversteesdemech mat Audio (B1)</li>
+        <li>Mëndlechen Ausdrock Übungen (A2)</li>
+        <li>Inhalter organiséiert no Deel</li>
+        <li>Detailléiert Resultater no all Simulatioun</li>
+        <li>Komplett Statistiken iwwer Äre Fortschrëtt</li>
+        <li>Zougang op Computer, Tablet an Handy</li>
+        <li>Direkt aktivéiert nom Bezuelen</li>
+      </ul>
+      <a class="pricing-cta pricing-cta--outline" href="https://civiclearn.com/sproochentest/checkout.html">Sproochentest wielen</a>
+    </div>
+
+    <!-- TIER 2: BUNDLE -->
+    <div class="pricing-card pricing-card--recommended">
+      <div class="pricing-badge">Populärsten</div>
+      <div class="pricing-top">
+        <span class="pricing-tag">Sproochentest + Vivre Ensemble</span>
+      </div>
+      <div class="pricing-price">
+        <div><span class="amount-old">138 €</span> <span class="amount">99 €</span></div>
+        <div class="subtitle">Béid Tester — Eemolege Bezuelung</div>
+        <div class="savings">Spuert 39 €</div>
+      </div>
+      <div class="pricing-divider"></div>
+      <ul class="feature-list">
+        <li>Alles aus dem Sproochentest-Plang</li>
+        <li class="is-bonus">+ Froen op Franséisch, Englesch an Däitsch</li>
+        <li class="is-bonus">+ 3 Themen: Geschicht · Institutiounen · Grondrechter</li>
+        <li class="is-bonus">+ Simulatiounen ënner Zäitdrock (60 Min., 40 Froen)</li>
+        <li class="is-bonus">+ Séier Tester, Flashcards a Liesvirlieshëllef</li>
+        <li class="is-bonus">+ Zougang zu den offizielle Referenztexter</li>
+        <li class="is-bonus">+ Feeler-Tracking a perséinlech Lëscht</li>
+        <li>Direkt aktivéiert nom Bezuelen</li>
+        <li>Béid Plattformen mat engem Login</li>
+      </ul>
+      <a class="pricing-cta" href="https://civiclearn.com/sproochentest/checkout.html?plan=bundle">Sproochentest + Vivre Ensemble</a>
+    </div>
+
+  </div>
+  <div class="pricing-guarantee">Eemolege Bezuelung. Keen Abonnement. Sécher Bezuelung iwwer Stripe.</div>
+</section>
+
+
+<!-- FAQ -->
+<section class="cl-faq">
+  <div class="section-heading">
+    <div class="section-kicker">Heefeg Froen</div>
+    <h2 class="section-title">FAQ — Sproochentest Preparatioun</h2>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question"><span>Ass et eng eemoleg Bezuelung oder en Abonnement?</span></div>
+    <div class="faq-answer">
+      <p>Dir bezuelt just eng Kéier — 69 € fir de Sproochentest eleng, oder 99 € fir de Sproochentest + Vivre au Luxembourg zesummen. Et gëtt kee monatlecht Abonnement oder zousätzlech Käschten.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question"><span>Wat ass de Sproochentest?</span></div>
+    <div class="faq-answer">
+      <p>De Sproochentest ass eng Sproochpréifung vum Institut national des langues Luxembourg (INLL). Hie préift d'Lëtzebuergesch-Kompetenz op Niveau A2 (Schwätzen) a B1 (Lauschteren) a gëtt gebraucht fir d'Lëtzebuerger Nationalitéit ze kréien.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question"><span>Wat ass d'Épreuve Vivre au Luxembourg?</span></div>
+    <div class="faq-answer">
+      <p>D'Épreuve Vivre au Luxembourg ass en Test iwwer d'Lëtzebuerger Gesellschaft — Geschicht, Institutiounen a Grondrechter. Den offizielle Test huet 40 Froen an 60 Minutten. Et ass eng vun de Viraussetzunge fir d'Lëtzebuerger Nationalitéit ze kréien, nieft dem Sproochentest. Am Pak-Offer preparéiert Dir Iech op béid Tester gläichzäiteg a spuert 39 €.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question"><span>Ass dat hei eng Umeldung fir den offizielle Sproochentest?</span></div>
+    <div class="faq-answer">
+      <p>Nee. Dëst ass nëmmen e Preparatiounsprogramm fir de Sproochentest. D'Umeldung fir den offizielle Sproochentest muss direkt beim INLL gemaach ginn iwwer <a href="https://www.inll.lu/en/sproochentest-en/" target="_blank" rel="noopener">MyINL</a>.</p>
+      <p>Eist Trainingsprogramm féiert zu kengem Zertifikat — d'Zil ass Iech beschtméiglech op de richtegen Examen virzebereeden.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question"><span>Ech hunn elo bezuelt. Wat geschitt dann?</span></div>
+    <div class="faq-answer">
+      <p>Nom Bezuelen gitt Dir op d'Login-Säit weidergeleet. Gitt Är E-Mail-Adress un déi Dir beim Kaf benotzt hutt: Dir kritt e PIN-Code. Mat deem Code kënnt Dir direkt op Äre perséinleche Beräich zougräifen.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question"><span>Sinn d'Tester genee wéi de richtegen Examen?</span></div>
+    <div class="faq-answer">
+      <p>D'Simulatiounen si baséiert op de Kompetenzen an de Formater déi am Sproochentest evaluéiert ginn, a baséieren op den Richtlinne vum INLL.</p>
+      <p>Mir hunn keng Relatioun mam INLL. Eist Programm ass exklusiv dofir do, Iech effektiv virzebereeden.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question"><span>Wéi funktionéiere d'Simulatiounen?</span></div>
+    <div class="faq-answer">
+      <p>D'Simulatiounen reproduzéiere d'Struktur vum richtege Sproochentest: Héierversteesdemech mat Audioen a Mëndlechen Ausdrock mat Themen an Diskussiounsübungen, mat de selwechte Formater wéi am offizielle Examen.</p>
+      <p>Et ass de beschte Wee fir Iech un d'realistesch Konditiounen ze gewunnen ier den Examen kënnt.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question"><span>Wéi laang brauch ech fir d'Preparatioun ofzeschléissen?</span></div>
+    <div class="faq-answer">
+      <p>Dat hänkt vun Ärem aktuelle Lëtzebuergesch-Niveau of. Déi meescht Benotzer brauchen tëschent zwou a véier Wochen fir all Simulatiounen a Übungen duerchzemaachen. Mir recommandéieren, fréi unzefänken.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question"><span>Gëtt de Mëndlechen Ausdrock och trainéiert?</span></div>
+    <div class="faq-answer">
+      <p>Jo. Am richtegen Examen schwätzt Dir mat engem Examinateur iwwer en Thema an beschreift eng Foto. Well dat net online méiglech ass, enthale mir Übungen mat Themen, Fotobeschreiwungen a Monolog-Aufgaben, fir datt Dir de Format an den Oflaf kennt.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question"><span>Kann ech d'Simulatiounen um Handy oder Tablet maachen?</span></div>
+    <div class="faq-answer">
+      <p>Jo. Dir kënnt d'Plattform op all Apparat mat enger Internetverbindung benotzen.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question"><span>Wat ass de Virdeel vum Pak-Offer (Sproochentest + Vivre)?</span></div>
+    <div class="faq-answer">
+      <p>Fir d'Lëtzebuerger Nationalitéit braucht Dir béid Tester ze bestoen: de Sproochentest an d'Épreuve Vivre au Luxembourg. Am Pak-Offer spuert Dir 39 € (99 € amplaz 138 €) a kritt Zougang zum Vivre-Programm mat Froen op 3 Sproochen (FR/EN/DE) iwwer Geschicht, Institutiounen a Grondrechter — inklusiv Simulatiounen ënner Zäitdrock, Flashcards a Statistiken.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- FEATURED ARTICLES -->
+<section class="home-articles">
+  <div class="section-heading">
+    <div class="section-kicker">Méi ze liesen</div>
+    <h2 class="section-title">Artikelen iwwer de Sproochentest</h2>
+    <p class="section-lead">Tipps, Strategien an wichteg Informatiounen fir de Sproochentest ze bestoen.</p>
+  </div>
+  <div class="home-articles-grid" id="homeArticlesGrid"></div>
+  <p class="home-articles-more"><a href="/artikelen/">All Artikelen gesinn →</a></p>
+</section>
+
+
+<!-- COMPATIBILITY -->
+<section class="compat-section">
+  <div class="compat-inner">
+    <h2 class="compat-title">Kompatibel mat allen Apparater a modernen Browseren</h2>
+    <div class="compat-grid">
+      <div class="compat-item"><img src="/assets/images/logos/windows.svg"><p>Windows</p></div>
+      <div class="compat-item"><img src="/assets/images/logos/macos.svg"><p>macOS</p></div>
+      <div class="compat-item"><img src="/assets/images/logos/android.svg"><p>Android</p></div>
+      <div class="compat-item"><img src="/assets/images/logos/ios.svg"><p>iPhone / iPad</p></div>
+      <div class="compat-item"><img src="/assets/images/logos/chrome.svg"><p>Chrome</p></div>
+      <div class="compat-item"><img src="/assets/images/logos/safari.svg"><p>Safari</p></div>
+      <div class="compat-item"><img src="/assets/images/logos/firefox.svg"><p>Firefox</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© <span id="footer-year"></span> Sproochentest.org — Member vum CivicLearn-Netzwierk.</div>
+    <div class="footer-links">
+      <a href="/gratis-test/">Gratis Test</a>
+      <a href="/artikelen/">Artikelen</a>
+      <a href="/kontakt/">Kontakt</a>
+      <a href="/politiken/">Politiken</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/hometest-sproochentest.js"></script>
+
+<script>
+document.querySelectorAll(".faq-item").forEach(item=>{
+  const q=item.querySelector(".faq-question");
+  q.addEventListener("click",()=>{
+    document.querySelectorAll(".faq-item").forEach(i=>{if(i!==item)i.classList.remove("open")});
+    item.classList.toggle("open");
+  });
+});
+</script>
+
+<script>document.getElementById("footer-year").textContent=new Date().getFullYear();</script>
+
+<script>
+const SPROOCHENTEST_SCHEDULE=[
+  {test:"2026-05-06",registration:"2026-04-01",location:"INLL Glacis"},
+  {test:"2026-05-20",registration:"2026-04-13",location:"INLL Glacis"},
+  {test:"2026-05-21",registration:"2026-04-13",location:"INLL Glacis"},
+  {test:"2026-05-21",registration:"2026-04-13",location:"INLL Belval"},
+  {test:"2026-06-02",registration:"2026-04-23",location:"INLL Glacis"},
+  {test:"2026-06-03",registration:"2026-04-24",location:"INLL Glacis"},
+  {test:"2026-06-04",registration:"2026-04-27",location:"INLL Glacis"},
+  {test:"2026-06-04",registration:"2026-04-27",location:"INLL Belval"},
+  {test:"2026-06-09",registration:"2026-05-05",location:"INLL Glacis"},
+  {test:"2026-06-10",registration:"2026-04-30",location:"INLL Glacis"},
+];
+function daysUntil(d){const n=new Date(),t=new Date(d+"T00:00:00");return Math.max(0,Math.ceil((t-n)/864e5))}
+function dayLabel(n){return n===1?"DAG":"DEEG"}
+function formatDateLB(d){const o=new Date(d+"T00:00:00"),m=["Januar","Februar","Mäerz","Abrëll","Mee","Juni","Juli","August","September","Oktober","November","Dezember"];return o.getDate()+". "+m[o.getMonth()]+" "+o.getFullYear()}
+function findCurrentPair(){const n=new Date();n.setHours(0,0,0,0);for(let i=0;i<SPROOCHENTEST_SCHEDULE.length;i++){if(new Date(SPROOCHENTEST_SCHEDULE[i].test+"T00:00:00")>=n)return{current:SPROOCHENTEST_SCHEDULE[i],next:SPROOCHENTEST_SCHEDULE[i+1]||null}}return{current:null,next:null}}
+function updateSproochentestStatus(){
+  const{current,next}=findCurrentPair();
+  const rows=document.querySelectorAll(".exam-status-row");if(rows.length<2)return;
+  const lR=rows[0],rR=rows[1];
+  const lN=lR.querySelector(".count-number"),lU=lR.querySelector(".count-unit"),lT=document.getElementById("status-test-text");
+  const rN=rR.querySelector(".count-number"),rU=rR.querySelector(".count-unit"),rT=document.getElementById("status-reg-text");
+  lR.classList.remove("is-urgent","is-closed");rR.classList.remove("is-urgent","is-closed");
+  if(!current){lN.textContent="—";lU.textContent="";lT.innerHTML='Et ginn am Moment keng Sproochentest-Sessiounen disponibel. Kuckt op <a href="https://myinl.inll.lu/exam/offer/sproochentest-8" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;font-weight:600;">MyINL</a> fir nei Datumen.';rR.style.display="none";return}
+  rR.style.display="";
+  const now=new Date(),regD=new Date(current.registration+"T00:00:00"),tstD=new Date(current.test+"T00:00:00"),dT=daysUntil(current.test),dR=daysUntil(current.registration);
+  if(now<regD){lN.textContent=dT;lU.textContent=dayLabel(dT);lT.innerHTML="Déi nächst Sproochentest-Sessioun ass den <strong>"+formatDateLB(current.test)+"</strong> — "+current.location+'. <span class="status-pill is-hidden">Umeldung zou</span>';rN.textContent=dR;rU.textContent=dayLabel(dR);rT.innerHTML="D'Umeldung fir dës Sessioun schléisst den <strong>"+formatDateLB(current.registration)+'</strong>. <a href="https://myinl.inll.lu/exam/offer/sproochentest-8" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;font-weight:500;font-size:0.9em;">Umellen op MyINL →</a>';rR.classList.add("is-urgent");return}
+  if(now>=regD&&now<tstD){lN.textContent=dT;lU.textContent=dayLabel(dT);lT.innerHTML="Déi nächst Sproochentest-Sessioun ass den <strong>"+formatDateLB(current.test)+"</strong> — "+current.location+'. <span class="status-pill">Umeldung zou</span>';if(next){var dN=daysUntil(next.test);rN.textContent=dN;rU.textContent=dayLabel(dN);rT.innerHTML="Déi nächst Sessioun duerno ass den <strong>"+formatDateLB(next.test)+"</strong> — "+next.location+"."}else{rR.style.display="none"}return}
+}
+document.addEventListener("DOMContentLoaded",updateSproochentestStatus);
+</script>
+
+<script>
+(async function(){
+  const g=document.getElementById("homeArticlesGrid");if(!g)return;
+  let a;try{const r=await fetch('/artikelen/articles.json');a=await r.json()}catch(e){return}
+  const s=a.sort(()=>Math.random()-.5).slice(0,6);
+  g.innerHTML=s.map(x=>'<a href="'+x.url+'" class="home-article-card"><img src="'+x.image+'" alt="'+x.title+'" onerror="this.style.display=\'none\'"><div class="home-article-body"><h3>'+x.title+'</h3><p>'+x.desc+'</p></div></a>').join('');
+})();
+</script>
+
+</body>
+</html>

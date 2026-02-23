@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="lb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- ===============================
+       SEO FOR HUB PAGE
+  ================================== -->
+  <title>Artikelen – Preparatioun fir de Sproochentest</title>
+
+  <meta name="description"
+        content="Artikelen iwwer de Sproochentest, Lëtzebuergesch léieren, Tipps fir d'Nationalitéit a Strategien fir de Lauschter- an de Schwätzdeel ze bestoen.">
+
+  <link rel="canonical" href="https://sproochentest.org/artikelen/" />
+
+  <!-- ===============================
+       OPEN GRAPH
+  ================================== -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Artikelen – Preparatioun fir de Sproochentest">
+  <meta property="og:description"
+        content="Eis Sammlung vun Artikelen iwwer de Sproochentest a Lëtzebuergesch léieren.">
+  <meta property="og:image"
+        content="https://sproochentest.org/assets/images/og-default.jpg">
+  <meta property="og:url" content="https://sproochentest.org/artikelen/">
+  <meta property="og:site_name" content="Sproochentest.org">
+
+  <!-- ===============================
+       TWITTER
+  ================================== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Artikelen – Preparatioun fir de Sproochentest">
+  <meta name="twitter:description"
+        content="Eng strukturéiert Sammlung vun Artikelen fir de Sproochentest zu Lëtzebuerg.">
+  <meta name="twitter:image"
+        content="https://sproochentest.org/assets/images/og-default.jpg">
+
+  <link rel="stylesheet" href="/assets/css/shared.css">
+  <link rel="stylesheet" href="/assets/css/blog.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+
+    <div class="header-left">
+      <a href="/" class="brand-link">
+        <img src="/assets/images/lu.svg" alt="Luxembourg">
+        <div class="brand-title">Sproochentest.org</div>
+      </a>
+    </div>
+
+    <div class="header-center">
+      <nav class="header-nav">
+        <a href="/gratis-test/">Gratis Test</a>
+        <a href="/artikelen/">Artikelen</a>
+        <a href="/kontakt/">Kontakt</a>
+        <a href="https://civiclearn.com/sproochentest/login">Aloggen</a>
+      </nav>
+    </div>
+
+    <div class="header-right">
+      <div class="brand-powered">powered by <span>CivicLearn</span></div>
+      <a href="https://civiclearn.com/sproochentest/checkout.html" class="btn-small-purple">Kompletten Zougang</a>
+    </div>
+
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="articles-hero">
+  <h1>Artikelen iwwer de Sproochentest</h1>
+  <p class="articles-hero-subtitle">
+    Tipps, Strategien an wichteg Informatiounen fir de Sproochentest ze bestoen — op Englesch, Franséisch, Däitsch a Russesch.
+  </p>
+  <a href="https://civiclearn.com/sproochentest/checkout.html" class="cta-purple">Elo ufänken ze trainéieren</a>
+</section>
+
+<!-- FEATURED ARTICLE (DYNAMIC) -->
+<section class="featured-article">
+  <h2>Artikel am Fokus</h2>
+
+  <a id="featured-card" class="featured-card" href="#">
+    <div class="featured-card-image">
+      <img id="featured-image" src="" alt="">
+    </div>
+    <div class="featured-card-content">
+      <h3 id="featured-title"></h3>
+      <p id="featured-desc"></p>
+      <span class="featured-read-more">Artikel liesen →</span>
+    </div>
+  </a>
+</section>
+
+
+<!-- GRID OF ALL ARTICLES -->
+<section class="articles-grid-section">
+  <h2>All Artikelen</h2>
+  <div class="articles-grid" id="articlesGrid"></div>
+</section>
+
+<!-- CTA BOTTOM -->
+<section class="articles-cta-bottom">
+  <h3>Wëllt Dir de Sproochentest direkt bestoen?</h3>
+  <p>Trainéiert mat komplette Simulatiounen, kuckt Är Statistiken a bereet Iech gezielt op béid Deeler vir.</p>
+  <a href="https://civiclearn.com/sproochentest/checkout.html" class="cta-purple">Kompletten Zougang kréien</a>
+</section>
+
+<footer class="cl-footer">
+  <div class="cl-footer-inner">
+    © <span id="footer-year"></span> 
+    <span class="cl-footer-brand">Sproochentest.org</span> — Member vum CivicLearn-Netzwierk.
+  </div>
+</footer>
+
+<script>
+(async function () {
+  const res = await fetch('/artikelen/articles.json');
+  const all = await res.json();
+
+  // Daily rotation based on date
+  const dayIndex = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
+  const index = dayIndex % all.length;
+  const a = all[index];
+
+  // Inject into featured card
+  document.getElementById("featured-card").href = a.url;
+  document.getElementById("featured-image").src = a.image;
+  document.getElementById("featured-image").alt = a.title;
+  document.getElementById("featured-title").textContent = a.title;
+  document.getElementById("featured-desc").textContent = a.desc;
+})();
+</script>
+
+<script>
+(async function () {
+  const grid = document.getElementById("articlesGrid");
+  if (!grid) return;
+
+  const res = await fetch('/artikelen/articles.json');
+  const all = await res.json();
+
+  // Sort alphabetically
+  all.sort((a, b) => a.title.localeCompare(b.title));
+
+  grid.innerHTML = all.map(a => `
+    <a href="${a.url}" class="blog-card">
+      <img src="${a.image}" alt="${a.title}">
+      <div class="blog-card-body">
+        <h3>${a.title}</h3>
+        <p>${a.desc}</p>
+      </div>
+    </a>
+  `).join('');
+})();
+</script>
+
+<script>
+  document.getElementById("footer-year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
