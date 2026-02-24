@@ -1,0 +1,19 @@
+# Sproochentest.org — Redirects for old URLs not on new site
+# Format: old_path new_path status_code
+
+# Old page names → new equivalents
+/free-test /gratis-test/ 301
+/sproochentest-free-simulation/ /gratis-test/ 301
+/start/ / 301
+/blog/ /artikelen/ 301
+/register/ https://civiclearn.com/sproochentest/checkout 301
+/login/ https://civiclearn.com/sproochentest/login.html 301
+
+# Tag pages → homepage
+/tag/* / 301
+
+# Category pages → homepage
+/category/* / 301
+
+# WordPress artifacts
+/lexend-footer/* / 301
