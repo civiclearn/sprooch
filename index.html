@@ -82,6 +82,18 @@
 
     /* Luxembourg flag progress bar */
     #inline-progressbar{background:linear-gradient(to right,#EF3340 0%,#EF3340 33.3%,#FFFFFF 33.3%,#FFFFFF 66.6%,#00A1DE 66.6%,#00A1DE 100%) !important}
+
+    /* Fix: keep the "Umeldung zou" (registration-closed) tag tidy on its own line
+       inside card 1, instead of wrapping into the gap between the two status cards. */
+    .exam-status-sentence .status-pill{
+      display:block;position:static;float:none;
+      width:max-content;max-width:100%;
+      margin:7px 0 0;padding:3px 10px;
+      border-radius:999px;background:#fdecea;color:#c0392b;
+      font-size:.64rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+      line-height:1.2;white-space:nowrap;
+    }
+    .exam-status-sentence .status-pill.is-hidden{display:none;}
   </style>
 </head>
 
