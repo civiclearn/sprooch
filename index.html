@@ -38,6 +38,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/newhome.css">
+  <link rel="stylesheet" href="https://civiclearn.com/assets/css/presale-home.css?v=2">
   <style>
     .features-grid{grid-template-columns:repeat(2,1fr);max-width:860px;margin-left:auto;margin-right:auto}
 
@@ -80,8 +81,6 @@
       .bundle-strip-price{flex-basis:100%;text-align:center}
     }
 
-    /* Luxembourg flag progress bar */
-    #inline-progressbar{background:linear-gradient(to right,#EF3340 0%,#EF3340 33.3%,#FFFFFF 33.3%,#FFFFFF 66.6%,#00A1DE 66.6%,#00A1DE 100%) !important}
 
     /* Fix: keep the "Umeldung zou" (registration-closed) tag tidy on its own line
        inside card 1, instead of wrapping into the gap between the two status cards. */
@@ -97,8 +96,9 @@
 
     /* ===== NEWS STRIP ("Aktuell") — recent press / INLL updates ===== */
     .news-strip{padding:0 0 2.6rem}
-    .hero + .news-strip{margin-top:-4.5rem;padding-top:0 !important}
-    .news-strip-inner{max-width:var(--layout-max);margin:0 auto;padding:0 1.5rem}
+    .hero + .news-strip{margin-top:0;padding-top:0 !important}
+    .news-strip-inner{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+    @media(max-width:480px){.news-strip-inner{padding:0 16px}}
     .news-strip-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
     .news-strip-head .section-kicker{margin:0;display:inline-flex;align-items:center;gap:.5rem}
     .news-strip-head .section-kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--success);box-shadow:0 0 0 4px rgba(24,160,110,.16)}
@@ -117,77 +117,91 @@
     .news-card:hover .news-link .arrow{transform:translateX(3px)}
     .news-strip-foot{margin-top:1rem;font-size:.86rem;color:var(--ink-muted);text-align:center}
     .news-strip-foot a{color:var(--accent-dark);font-weight:600;text-decoration:underline;text-underline-offset:3px}
-    @media(max-width:900px){.news-grid{grid-template-columns:1fr}.hero + .news-strip{margin-top:-3.5rem}.news-card p{flex:initial}}
+    @media(max-width:900px){.news-grid{grid-template-columns:1fr}.hero + .news-strip{margin-top:0}.news-card p{flex:initial}}
   </style>
 </head>
 
 <body>
 
 <!-- HEADER -->
-<header class="cl-header">
-  <div class="cl-header-inner">
-    <a href="/" class="cl-logo">
-      <img src="/assets/images/lu.svg" alt="LU">
-      <span>Sproochentest.org</span>
-    </a>
-    <nav class="cl-nav">
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a href="/" class="logo logo-long"><img alt="LU" src="/assets/images/lu.svg"/><span>Sproochentest.org</span></a>
+
+    <button class="burger" type="button" aria-label="Menü" aria-expanded="false" aria-controls="site-nav"
+      onclick="var o=document.getElementById('hdr').classList.toggle('menu-open');this.setAttribute('aria-expanded',o)">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+
+    <nav class="nav" id="site-nav">
       <a href="/gratis-test/">Gratis Test</a>
       <a href="/artikelen/">Artikelen</a>
       <a href="/kontakt/">Kontakt</a>
       <a href="https://civiclearn.com/sproochentest/login">Aloggen</a>
     </nav>
-    <div class="cl-right">
-      <div class="cl-powered">powered by <span>CivicLearn</span></div>
-      <a href="https://civiclearn.com/sproochentest/checkout.html" class="cl-btn">Kompletten Zougang</a>
+
+    <div class="hdr-right">
+      <div class="powered">
+        <div>powered by <b>CivicLearn</b></div>
+        <a class="tp" href="https://www.trustpilot.com/review/civiclearn.com" target="_blank" rel="noopener" aria-label="CivicLearn op Trustpilot: 4,5 vu 5">
+          <span class="tp-stars" aria-hidden="true">
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="12.5" height="25" fill="#00b67a"/><rect x="12.5" width="12.5" height="25" fill="#dcdce6"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+          </span>
+          <span class="tp-word">Trustpilot</span>
+        </a>
+      </div>
+      <a href="https://civiclearn.com/sproochentest/checkout.html" class="btn btn-primary">Kompletten Zougang</a>
     </div>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <section class="exam-status">
-    <div class="exam-status-inner">
-      <div class="exam-status-row">
-        <div class="exam-status-counter" id="status-test-counter">
-          <span class="count-number">—</span>
-          <span class="count-unit"></span>
-        </div>
-        <div class="exam-status-text">
-          <p class="exam-status-sentence" id="status-test-text">Nächst Sproochentest-Sessiounen: INLL Glacis a Belval — kuckt d'Datumen op <a href="https://myinl.inll.lu/exam/offer/sproochentest-8" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;font-weight:600;">MyINL</a>. <span class="status-pill is-hidden">Umeldung zou</span></p>
-        </div>
+  <div class="wrap hero-grid">
+    <div>
+      <section class="exam-status">
+<div class="exam-status-inner">
+<div class="exam-status-row">
+<div class="exam-status-counter" id="status-test-counter">
+<span class="count-number">—</span>
+<span class="count-unit"></span>
+</div>
+<div class="exam-status-text">
+<p class="exam-status-sentence" id="status-test-text">Nächst Sproochentest-Sessiounen: INLL Glacis a Belval — kuckt d'Datumen op <a href="https://myinl.inll.lu/exam/offer/sproochentest-8" rel="noopener" style="color:inherit;text-decoration:underline;font-weight:600;" target="_blank">MyINL</a>. <span class="status-pill is-hidden">Umeldung zou</span></p>
+</div>
+</div>
+<div class="exam-status-row exam-status-row--registration">
+<div class="exam-status-counter" id="status-reg-counter">
+<span class="count-number">—</span>
+<span class="count-unit"></span>
+</div>
+<div class="exam-status-text">
+<p class="exam-status-sentence" id="status-reg-text"></p>
+</div>
+</div>
+</div>
+</section>
+      
+      
+      <h1><span>Bereet Iech op de Sproochentest vir</span> a kritt d'Lëtzebuerger Nationalitéit</h1>
+      <p class="hero-sub">Komplett Simulatiounen fir Héierversteesdemech a Mëndlechen Ausdrock. Trainéiert an Äerem Tempo a passéiert den Test mat Vertrauen.</p>
+      <div class="hero-ctas">
+        <a href="https://civiclearn.com/sproochentest/checkout.html" class="btn btn-primary" id="hero-cta">Elo ufänken ze trainéieren</a>
+        <a href="/gratis-test/" class="btn btn-ghost">Gratis Simulatioun probéieren</a>
       </div>
-      <div class="exam-status-row exam-status-row--registration">
-        <div class="exam-status-counter" id="status-reg-counter">
-          <span class="count-number">—</span>
-          <span class="count-unit"></span>
-        </div>
-        <div class="exam-status-text">
-          <p class="exam-status-sentence" id="status-reg-text"></p>
-        </div>
+      <p class="hero-meta" id="v2Meta"><strong>69 €, eemoleg Bezuelung</strong> · Zougang fir ëmmer · keen Abonnement</p>
+      <div class="rating">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <strong>Excellent</strong>
+        <span>Dausende vu Kandidaten preparéiert duerch d'CivicLearn-Netzwierk.</span>
       </div>
     </div>
-  </section>
-
-  <div class="hero-center hero-center--spaced">
-    <h1 class="hero-title">
-      <span>Bereet Iech op de Sproochentest vir<br></span>
-      a kritt d'Lëtzebuerger Nationalitéit
-    </h1>
-    <p class="hero-subtitle">
-      Komplett Simulatiounen fir Héierversteesdemech a Mëndlechen Ausdrock.<br>
-      Trainéiert an Äerem Tempo a passéiert den Test mat Vertrauen.
-    </p>
-    <div class="hero-actions">
-      <a href="https://civiclearn.com/sproochentest/checkout.html" class="hero-primary-btn">Elo ufänken ze trainéieren</a>
-      <a href="/gratis-test/" class="hero-secondary-btn">Gratis Simulatioun probéieren</a>
-    </div>
-    <div class="hero-social">
-      <span class="rating-stars">★★★★★</span>
-      <span class="rating-word">Excellent</span>
-      <span class="rating-subtext">Dausende vu Kandidaten preparéiert duerch d'CivicLearn-Netzwierk.</span>
-    </div>
-    <div class="hero-image-wide">
-      <img src="/assets/images/devices-sproochentest.webp" alt="Sproochentest Plattform op verschiddenen Apparater">
+    <div class="hero-img">
+      <img src="/assets/images/devices-sproochentest.webp" alt="Sproochentest Plattform op verschiddenen Apparater" width="2965" height="2005" fetchpriority="high" decoding="async">
     </div>
   </div>
 </section>
@@ -238,264 +252,172 @@
 
 
 <!-- FEATURES: EXAM COMPONENTS -->
-<section class="features-section">
-  <div class="section-heading">
-    <div class="section-kicker">D'Deeler vum Examen</div>
-    <h2 class="section-title">De Sproochentest huet 2 Deeler</h2>
-    <p class="section-lead">
-      De Sproochentest préift Äert Versteesdemech vum Lëtzebuergeschen (B1) an Är Fäegkeet fir ze schwätzen (A2).
-      Trainéiert béid Deeler gezielt fir mat Sécherheet an den Examen ze goen.
-    </p>
-  </div>
-  <div class="features-grid">
-    <div class="feature-card" onclick="location.href='/gratis-test/'">
-      <a href="/gratis-test/" class="feature-card-link feature-card--data">
-        <div class="feature-metric">
-          <span class="metric-number">B1</span>
-          <span class="metric-label">~25 MINUTTEN</span>
-        </div>
-        <h3 class="feature-title">Héierversteesdemech</h3>
-        <p class="feature-text">
-          Lauschtert dräi Opnamen op Lëtzebuergesch — Noriichten, Gespréicher a Presentatiounen — a beäntwert Multiple-Choice-Froen.
-          Dësen Deel préift Äert Versteesdemech op Niveau B1.
-        </p>
-        <div class="feature-cta">Gratis Test <span class="arrow">›</span></div>
-      </a>
-    </div>
-    <div class="feature-card" onclick="location.href='/gratis-test/'">
-      <a href="/gratis-test/" class="feature-card-link feature-card--data">
-        <div class="feature-metric">
-          <span class="metric-number">A2</span>
-          <span class="metric-label">~10 MINUTTEN</span>
-        </div>
-        <h3 class="feature-title">Mëndlechen Ausdrock</h3>
-        <p class="feature-text">
-          Schwätzt iwwer en Thema mat dem Examinateur (z.B. Famill, Aarbecht, Fräizäit) a beschreift eng Foto.
-          Dësen Deel préift Är mëndlech Ausdrocksfäegkeet op Niveau A2.
-        </p>
-        <div class="feature-cta">Gratis Test <span class="arrow">›</span></div>
-      </a>
+<section class="section feat-v2">
+  <div class="wrap">
+    <div class="section-head"><span class="kicker">D'Deeler vum Examen</span><h2>De Sproochentest huet 2 Deeler</h2><p>De Sproochentest préift Äert Versteesdemech vum Lëtzebuergeschen (B1) an Är Fäegkeet fir ze schwätzen (A2). Trainéiert béid Deeler gezielt fir mat Sécherheet an den Examen ze goen.</p></div>
+    <div class="features">
+      <div class="feature feature-top">
+        <div class="feat-metric"><b>B1</b><span>~25 MINUTTEN</span></div>
+        <h3>Héierversteesdemech</h3>
+        <p>Lauschtert dräi Opnamen op Lëtzebuergesch — Noriichten, Gespréicher a Presentatiounen — a beäntwert Multiple-Choice-Froen. Dësen Deel préift Äert Versteesdemech op Niveau B1.</p>
+        <a class="feat-link" href="/gratis-test/">Gratis Test <span class="arrow">›</span></a>
+      </div>
+      <div class="feature feature-top">
+        <div class="feat-metric"><b>A2</b><span>~10 MINUTTEN</span></div>
+        <h3>Mëndlechen Ausdrock</h3>
+        <p>Schwätzt iwwer en Thema mat dem Examinateur (z.B. Famill, Aarbecht, Fräizäit) a beschreift eng Foto. Dësen Deel préift Är mëndlech Ausdrocksfäegkeet op Niveau A2.</p>
+        <a class="feat-link" href="/gratis-test/">Gratis Test <span class="arrow">›</span></a>
+      </div>
     </div>
   </div>
 </section>
 
 
 <!-- INLINE TEST (QUIZ) -->
-<section class="inline-test">
-  <div class="inline-test-inner">
-    <h2 class="inline-test-heading">Test Är Wëssen</h2>
-    <p class="inline-test-lead">Dräi séier Froen fir ze kucken ob Dir prett sidd</p>
+<section class="section quiz" id="free-questions">
+  <div class="wrap">
+    <div class="quiz-top">
+      <div class="section-head"><span class="kicker" id="v2QuizKicker">Gratis Übung</span><h2>Test Är Wëssen</h2><p>Dräi séier Froen fir ze kucken ob Dir prett sidd</p></div>
+      <div class="quiz-actions"><a href="/gratis-test/" class="quiz-more">Méi Übungen →</a><a href="https://civiclearn.com/sproochentest/checkout.html" class="btn btn-ghost">Kont erstellen</a></div>
+    </div>
+    <div class="progress">
+      <div id="inline-progress-text"></div>
+      <div class="progress-track"><div id="inline-progressbar"></div></div>
+    </div>
     <div id="inline-test-questions"></div>
-    <div class="inline-progressbar-wrapper">
-      <div class="inline-progressbar" id="inline-progressbar" style="width: 0%;"></div>
-    </div>
-    <div class="inline-cta-row">
-      <div class="upper-cta-wrapper">
-        <a href="/gratis-test/" class="btn-secondary-cta">Méi Übungen →</a>
-      </div>
-      <a href="https://civiclearn.com/sproochentest/checkout.html" class="hero-primary-btn">Kont erstellen</a>
-    </div>
   </div>
 </section>
 
 
 <!-- PRICING: TWO TIERS -->
-<section class="premium-pricing">
-  <div class="section-heading">
-    <div class="section-kicker">Pläng a Präisser</div>
-    <h2 class="section-title">Kompletten Zougang</h2>
-    <p class="section-lead">Eemolege Bezuelung. Keen Abonnement. Liewenszäit-Zougang.</p>
-  </div>
-
-  <div class="pricing-card">
-    <div class="pricing-top">
-      <span class="pricing-tag">Sproochentest Premium</span>
+<section class="section pricing-v2" id="pricing">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="kicker">Pläng a Präisser</span>
+      <h2>Kompletten Zougang</h2>
+      <p>Eemolege Bezuelung. Keen Abonnement. Liewenszäit-Zougang.</p>
     </div>
-    <div class="pricing-price">
-      <div class="amount">69 €</div>
-      <div class="subtitle">Eemolege Bezuelung — Zougang fir ëmmer</div>
+    
+    <div class="price-card">
+      <div class="price-left">
+        <span class="price-tag">Sproochentest Premium</span>
+        <div class="price-amount">69 €<small>eemoleg</small></div>
+        <p class="price-sub">Eemolege Bezuelung — Zougang fir ëmmer</p>
+        
+        
+        <a class="btn btn-primary" href="https://civiclearn.com/sproochentest/checkout.html">Elo ufänken</a>
+        <p class="price-note">Eemolege Bezuelung. Keen Abonnement. Sécher Bezuelung iwwer Stripe.</p>
+        <a class="bundle-strip" href="https://civiclearn.com/sproochentest/checkout.html?plan=bundle">
+<span class="bundle-strip-icon">🎁</span>
+<div class="bundle-strip-body">
+<div class="bundle-strip-headline">+ Vivre Ensemble Test</div>
+<div class="bundle-strip-sub">Béid Tester mat engem Login — Geschicht, Institutiounen, Grondrechter</div>
+</div>
+<div class="bundle-strip-price">
+<div class="bundle-strip-amount">99 €</div>
+<div class="bundle-strip-save">−39 €</div>
+</div>
+</a>
+      </div>
+      <div class="price-right">
+        <h3 id="v2Wyg">Dat ass dran</h3>
+        <ul class="checks feature-list">
+          <li>10 komplett Sproochentest-Simulatiounen</li>
+          <li>Héierversteesdemech mat Audio (B1)</li>
+          <li>Mëndlechen Ausdrock Übungen (A2)</li>
+          <li>Inhalter organiséiert no Deel</li>
+          <li>Detailléiert Resultater no all Simulatioun</li>
+          <li>Komplett Statistiken iwwer Äre Fortschrëtt</li>
+          <li>Zougang op Computer, Tablet an Handy</li>
+          <li>Direkt aktivéiert nom Bezuelen</li>
+        </ul>
+      </div>
     </div>
-    <div class="pricing-divider"></div>
-    <ul class="feature-list">
-      <li>10 komplett Sproochentest-Simulatiounen</li>
-      <li>Héierversteesdemech mat Audio (B1)</li>
-      <li>Mëndlechen Ausdrock Übungen (A2)</li>
-      <li>Inhalter organiséiert no Deel</li>
-      <li>Detailléiert Resultater no all Simulatioun</li>
-      <li>Komplett Statistiken iwwer Äre Fortschrëtt</li>
-      <li>Zougang op Computer, Tablet an Handy</li>
-      <li>Direkt aktivéiert nom Bezuelen</li>
-    </ul>
-    <a class="pricing-cta" href="https://civiclearn.com/sproochentest/checkout.html">Elo ufänken</a>
-
-    <!-- Bundle upsell strip -->
-    <a class="bundle-strip" href="https://civiclearn.com/sproochentest/checkout.html?plan=bundle">
-      <span class="bundle-strip-icon">🎁</span>
-      <div class="bundle-strip-body">
-        <div class="bundle-strip-headline">+ Vivre Ensemble Test</div>
-        <div class="bundle-strip-sub">Béid Tester mat engem Login — Geschicht, Institutiounen, Grondrechter</div>
-      </div>
-      <div class="bundle-strip-price">
-        <div class="bundle-strip-amount">99 €</div>
-        <div class="bundle-strip-save">−39 €</div>
-      </div>
-    </a>
-
   </div>
-
-  <div class="pricing-guarantee">Eemolege Bezuelung. Keen Abonnement. Sécher Bezuelung iwwer Stripe.</div>
 </section>
 
 
 <!-- FAQ -->
-<section class="cl-faq">
-  <div class="section-heading">
-    <div class="section-kicker">Heefeg Froen</div>
-    <h2 class="section-title">FAQ — Sproochentest Preparatioun</h2>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question"><span>Ass et eng eemoleg Bezuelung oder en Abonnement?</span></div>
-    <div class="faq-answer">
-      <p>Dir bezuelt just eng Kéier — 69 € fir de Sproochentest eleng, oder 99 € fir de Sproochentest + Vivre au Luxembourg zesummen. Et gëtt kee monatlecht Abonnement oder zousätzlech Käschten.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question"><span>Wat ass de Sproochentest?</span></div>
-    <div class="faq-answer">
-      <p>De Sproochentest ass eng Sproochpréifung vum Institut national des langues Luxembourg (INLL). Hie préift d'Lëtzebuergesch-Kompetenz op Niveau A2 (Schwätzen) a B1 (Lauschteren) a gëtt gebraucht fir d'Lëtzebuerger Nationalitéit ze kréien.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question"><span>Wat ass d'Épreuve Vivre au Luxembourg?</span></div>
-    <div class="faq-answer">
-      <p>D'Épreuve Vivre au Luxembourg ass en Test iwwer d'Lëtzebuerger Gesellschaft — Geschicht, Institutiounen a Grondrechter. Den offizielle Test huet 40 Froen an 60 Minutten. Et ass eng vun de Viraussetzunge fir d'Lëtzebuerger Nationalitéit ze kréien, nieft dem Sproochentest. Am Pak-Offer preparéiert Dir Iech op béid Tester gläichzäiteg a spuert 39 €.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question"><span>Ass dat hei eng Umeldung fir den offizielle Sproochentest?</span></div>
-    <div class="faq-answer">
-      <p>Nee. Dëst ass nëmmen e Preparatiounsprogramm fir de Sproochentest. D'Umeldung fir den offizielle Sproochentest muss direkt beim INLL gemaach ginn iwwer <a href="https://www.inll.lu/en/sproochentest-en/" target="_blank" rel="noopener">MyINL</a>.</p>
-      <p>Eist Trainingsprogramm féiert zu kengem Zertifikat — d'Zil ass Iech beschtméiglech op de richtegen Examen virzebereeden.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question"><span>Ech hunn elo bezuelt. Wat geschitt dann?</span></div>
-    <div class="faq-answer">
-      <p>Nom Bezuelen gitt Dir op d'Login-Säit weidergeleet. Gitt Är E-Mail-Adress un déi Dir beim Kaf benotzt hutt: Dir kritt e PIN-Code. Mat deem Code kënnt Dir direkt op Äre perséinleche Beräich zougräifen.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question"><span>Sinn d'Tester genee wéi de richtegen Examen?</span></div>
-    <div class="faq-answer">
-      <p>D'Simulatiounen si baséiert op de Kompetenzen an de Formater déi am Sproochentest evaluéiert ginn, a baséieren op den Richtlinne vum INLL.</p>
-      <p>Mir hunn keng Relatioun mam INLL. Eist Programm ass exklusiv dofir do, Iech effektiv virzebereeden.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question"><span>Wéi funktionéiere d'Simulatiounen?</span></div>
-    <div class="faq-answer">
-      <p>D'Simulatiounen reproduzéiere d'Struktur vum richtege Sproochentest: Héierversteesdemech mat Audioen a Mëndlechen Ausdrock mat Themen an Diskussiounsübungen, mat de selwechte Formater wéi am offizielle Examen.</p>
-      <p>Et ass de beschte Wee fir Iech un d'realistesch Konditiounen ze gewunnen ier den Examen kënnt.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question"><span>Wéi laang brauch ech fir d'Preparatioun ofzeschléissen?</span></div>
-    <div class="faq-answer">
-      <p>Dat hänkt vun Ärem aktuelle Lëtzebuergesch-Niveau of. Déi meescht Benotzer brauchen tëschent zwou a véier Wochen fir all Simulatiounen a Übungen duerchzemaachen. Mir recommandéieren, fréi unzefänken.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question"><span>Gëtt de Mëndlechen Ausdrock och trainéiert?</span></div>
-    <div class="faq-answer">
-      <p>Jo. Am richtegen Examen schwätzt Dir mat engem Examinateur iwwer en Thema an beschreift eng Foto. Well dat net online méiglech ass, enthale mir Übungen mat Themen, Fotobeschreiwungen a Monolog-Aufgaben, fir datt Dir de Format an den Oflaf kennt.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question"><span>Kann ech d'Simulatiounen um Handy oder Tablet maachen?</span></div>
-    <div class="faq-answer">
-      <p>Jo. Dir kënnt d'Plattform op all Apparat mat enger Internetverbindung benotzen.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question"><span>Wat ass de Virdeel vum Pak-Offer (Sproochentest + Vivre)?</span></div>
-    <div class="faq-answer">
-      <p>Fir d'Lëtzebuerger Nationalitéit braucht Dir béid Tester ze bestoen: de Sproochentest an d'Épreuve Vivre au Luxembourg. Am Pak-Offer spuert Dir 39 € (99 € amplaz 138 €) a kritt Zougang zum Vivre-Programm mat Froen op 3 Sproochen (FR/EN/DE) iwwer Geschicht, Institutiounen a Grondrechter — inklusiv Simulatiounen ënner Zäitdrock, Flashcards a Statistiken.</p>
+<section class="section" style="padding-top:0">
+  <div class="wrap faq-grid">
+    <div class="section-head"><span class="kicker">Heefeg Froen</span><h2>FAQ — Sproochentest Preparatioun</h2><p id="v2FaqMore">Nach eng Fro? <a href="/kontakt/">Schreift eis</a>.</p></div>
+    <div class="faq-list">
+      <details><summary>Ass et eng eemoleg Bezuelung oder en Abonnement?</summary><p>Dir bezuelt just eng Kéier — 69 € fir de Sproochentest eleng, oder 99 € fir de Sproochentest + Vivre au Luxembourg zesummen. Et gëtt kee monatlecht Abonnement oder zousätzlech Käschten.</p></details>
+      <details><summary>Wat ass de Sproochentest?</summary><p>De Sproochentest ass eng Sproochpréifung vum Institut national des langues Luxembourg (INLL). Hie préift d'Lëtzebuergesch-Kompetenz op Niveau A2 (Schwätzen) a B1 (Lauschteren) a gëtt gebraucht fir d'Lëtzebuerger Nationalitéit ze kréien.</p></details>
+      <details><summary>Wat ass d'Épreuve Vivre au Luxembourg?</summary><p>D'Épreuve Vivre au Luxembourg ass en Test iwwer d'Lëtzebuerger Gesellschaft — Geschicht, Institutiounen a Grondrechter. Den offizielle Test huet 40 Froen an 60 Minutten. Et ass eng vun de Viraussetzunge fir d'Lëtzebuerger Nationalitéit ze kréien, nieft dem Sproochentest. Am Pak-Offer preparéiert Dir Iech op béid Tester gläichzäiteg a spuert 39 €.</p></details>
+      <details><summary>Ass dat hei eng Umeldung fir den offizielle Sproochentest?</summary><p>Nee. Dëst ass nëmmen e Preparatiounsprogramm fir de Sproochentest. D'Umeldung fir den offizielle Sproochentest muss direkt beim INLL gemaach ginn iwwer <a href="https://www.inll.lu/en/sproochentest-en/" rel="noopener" target="_blank">MyINL</a>.</p> <p>Eist Trainingsprogramm féiert zu kengem Zertifikat — d'Zil ass Iech beschtméiglech op de richtegen Examen virzebereeden.</p></details>
+      <details><summary>Ech hunn elo bezuelt. Wat geschitt dann?</summary><p>Nom Bezuelen gitt Dir op d'Login-Säit weidergeleet. Gitt Är E-Mail-Adress un déi Dir beim Kaf benotzt hutt: Dir kritt e PIN-Code. Mat deem Code kënnt Dir direkt op Äre perséinleche Beräich zougräifen.</p></details>
+      <details><summary>Sinn d'Tester genee wéi de richtegen Examen?</summary><p>D'Simulatiounen si baséiert op de Kompetenzen an de Formater déi am Sproochentest evaluéiert ginn, a baséieren op den Richtlinne vum INLL.</p> <p>Mir hunn keng Relatioun mam INLL. Eist Programm ass exklusiv dofir do, Iech effektiv virzebereeden.</p></details>
+      <details><summary>Wéi funktionéiere d'Simulatiounen?</summary><p>D'Simulatiounen reproduzéiere d'Struktur vum richtege Sproochentest: Héierversteesdemech mat Audioen a Mëndlechen Ausdrock mat Themen an Diskussiounsübungen, mat de selwechte Formater wéi am offizielle Examen.</p> <p>Et ass de beschte Wee fir Iech un d'realistesch Konditiounen ze gewunnen ier den Examen kënnt.</p></details>
+      <details><summary>Wéi laang brauch ech fir d'Preparatioun ofzeschléissen?</summary><p>Dat hänkt vun Ärem aktuelle Lëtzebuergesch-Niveau of. Déi meescht Benotzer brauchen tëschent zwou a véier Wochen fir all Simulatiounen a Übungen duerchzemaachen. Mir recommandéieren, fréi unzefänken.</p></details>
+      <details><summary>Gëtt de Mëndlechen Ausdrock och trainéiert?</summary><p>Jo. Am richtegen Examen schwätzt Dir mat engem Examinateur iwwer en Thema an beschreift eng Foto. Well dat net online méiglech ass, enthale mir Übungen mat Themen, Fotobeschreiwungen a Monolog-Aufgaben, fir datt Dir de Format an den Oflaf kennt.</p></details>
+      <details><summary>Kann ech d'Simulatiounen um Handy oder Tablet maachen?</summary><p>Jo. Dir kënnt d'Plattform op all Apparat mat enger Internetverbindung benotzen.</p></details>
+      <details><summary>Wat ass de Virdeel vum Pak-Offer (Sproochentest + Vivre)?</summary><p>Fir d'Lëtzebuerger Nationalitéit braucht Dir béid Tester ze bestoen: de Sproochentest an d'Épreuve Vivre au Luxembourg. Am Pak-Offer spuert Dir 39 € (99 € amplaz 138 €) a kritt Zougang zum Vivre-Programm mat Froen op 3 Sproochen (FR/EN/DE) iwwer Geschicht, Institutiounen a Grondrechter — inklusiv Simulatiounen ënner Zäitdrock, Flashcards a Statistiken.</p></details>
     </div>
   </div>
 </section>
 
 
 <!-- FEATURED ARTICLES -->
-<section class="home-articles">
-  <div class="section-heading">
-    <div class="section-kicker">Méi ze liesen</div>
-    <h2 class="section-title">Artikelen iwwer de Sproochentest</h2>
-    <p class="section-lead">Tipps, Strategien an wichteg Informatiounen fir de Sproochentest ze bestoen.</p>
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head"><span class="kicker">Méi ze liesen</span><h2>Artikelen iwwer de Sproochentest</h2><p>Tipps, Strategien an wichteg Informatiounen fir de Sproochentest ze bestoen.</p></div>
+    <div class="home-articles-grid" id="homeArticlesGrid"></div>
+    <p class="articles-more"><a href="/artikelen/">All Artikelen gesinn →</a></p>
   </div>
-
-  <!-- PASSPORT RANKING STRIP — Méi ze liesen (further-reading pointer → ranking page). Luxembourgish copy: native review recommended. -->
-  <a href="https://civiclearn.com/passport-ranking" style="display:flex;align-items:center;gap:14px;max-width:820px;margin:0 auto 24px;padding:13px 22px;background:#fff;border:1px solid #e5e1da;border-left:3px solid #7c3aed;border-radius:12px;text-decoration:none;color:#1d2230;text-align:left;transition:border-color .15s,box-shadow .15s;" onmouseover="this.style.borderColor='#7c3aed';this.style.boxShadow='0 4px 16px rgba(124,58,237,.12)'" onmouseout="this.style.borderColor='#e5e1da';this.style.borderLeftColor='#7c3aed';this.style.boxShadow='none'">
-    <span style="flex:0 0 auto;background:#f5f0ff;color:#7c3aed;font-weight:700;font-size:.7rem;letter-spacing:.02em;padding:5px 10px;border-radius:6px;white-space:nowrap;">PASS-KLASSEMENT</span>
-    <span style="flex:1 1 auto;min-width:0;font-size:.86rem;line-height:1.45;color:#555;text-align:left;">
-      <strong style="color:#1a1a2e;">Lëtzebuerg huet de 6. beschte Pass vun der Welt</strong> — no deem wat wierklech zielt.
-    </span>
-    <span style="flex:0 0 auto;color:#7c3aed;font-weight:600;font-size:.84rem;white-space:nowrap;">Kuck d'Klassement →</span>
-  </a>
-
-  <div class="home-articles-grid" id="homeArticlesGrid">
-    <a href="/what-is-the-sproochentest/" class="home-article-card"><img src="/assets/images/articles/sproochentest-letzebuerg-2026.png" alt="What Is the Sproochentest? A Complete Guide to the Luxembourgish Language Exam for Citizenship" onerror="this.style.display='none'"><div class="home-article-body"><h3>What Is the Sproochentest? A Complete Guide to the Luxembourgish Language Exam for Citizenship</h3><p>For anyone seeking Luxembourgish citizenship, the Sproochentest…</p></div></a>
-    <a href="/sproochentest-luxemburg-staatsbuergerschaft/" class="home-article-card"><img src="/assets/images/articles/sproochentest-luxemburg-staatsbuergerschaft.png" alt="Sproochentest Luxemburg: Alles, was Sie über die Sprachprüfung für die Staatsbürgerschaft wissen müssen" onerror="this.style.display='none'"><div class="home-article-body"><h3>Sproochentest Luxemburg: Alles, was Sie über die Sprachprüfung für die Staatsbürgerschaft wissen müssen</h3><p>Wer die luxemburgische Staatsbürgerschaft beantragen…</p></div></a>
-    <a href="/typische-fehler-sproochentest/" class="home-article-card"><img src="/assets/images/articles/sproochentest-fehler-vermeiden.png" alt="Typische Fehler beim Sproochentest – und wie man sie vermeidet" onerror="this.style.display='none'"><div class="home-article-body"><h3>Typische Fehler beim Sproochentest – und wie man sie vermeidet</h3><p>Der Sproochentest ist ein wichtiger Schritt auf dem Weg zur luxemburgischen Staatsbürgerschaft. Viele Kandidaten machen dabei ähnliche Fehler – besonders in…</p></div></a>
-    <a href="/faux-amis-luxembourgeois/" class="home-article-card"><img src="/assets/images/articles/Sproochentest-Luxembourgish-test-2.png" alt="Falsche Frënn : les faux amis en luxembourgeois" onerror="this.style.display='none'"><div class="home-article-body"><h3>Falsche Frënn : les faux amis en luxembourgeois</h3><p>Lorsqu’on apprend le luxembourgeois, il est tentant de croire que tout sera plus simple grâce à la proximité avec l’allemand et le français. Pourtant, cette…</p></div></a>
-    <a href="/separable-verbs-in-luxembourgish-sproochentest/" class="home-article-card"><img src="/assets/images/articles/sproochentest-separable-verbs.png" alt="Mastering Separable Verbs in Luxembourgish – A Key to Natural Speech" onerror="this.style.display='none'"><div class="home-article-body"><h3>Mastering Separable Verbs in Luxembourgish – A Key to Natural Speech</h3><p>One of the more subtle yet essential elements of Luxembourgish grammar is separable verbs, or "trennbar Verben." These are verbs that consist of a prefix and a…</p></div></a>
-    <a href="/describing-people-luxembourgish/" class="home-article-card"><img src="/assets/images/articles/Sproochentest-Luxembourgish-test-1.png" alt="Wéi gesäit hien aus? Describing a Person in Luxembourgish" onerror="this.style.display='none'"><div class="home-article-body"><h3>Wéi gesäit hien aus? Describing a Person in Luxembourgish</h3><p>One of the most common situations in any language is describing a person. In Luxembourgish, this skill is also directly relevant for the Sproochentest, where…</p></div></a>
-  </div>
-  <p class="home-articles-more"><a href="/artikelen/">All Artikelen gesinn →</a></p>
 </section>
 
 
 <!-- COMPATIBILITY -->
-<section class="compat-section">
-  <div class="compat-inner">
-    <h2 class="compat-title">Kompatibel mat allen Apparater a modernen Browseren</h2>
-    <div class="compat-grid">
-      <div class="compat-item"><img src="/assets/images/logos/windows.svg"><p>Windows</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/macos.svg"><p>macOS</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/android.svg"><p>Android</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/ios.svg"><p>iPhone / iPad</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/chrome.svg"><p>Chrome</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/safari.svg"><p>Safari</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/firefox.svg"><p>Firefox</p></div>
+<!-- CLOSING CTA -->
+<section class="closing-wrap" style="padding:24px 0 40px">
+  <div class="wrap">
+    <div class="closing">
+      <div>
+        <h2 id="v2ClosingH">Prett fir de Sproochentest?</h2>
+        <p id="v2ClosingP">10 komplett Simulatiounen fir Héierversteesdemech a Mëndlechen Ausdrock, mat detailléierte Resultater. 69 €, eemoleg.</p>
+      </div>
+      <a href="https://civiclearn.com/sproochentest/checkout.html" class="btn btn-primary" id="v2ClosingBtn">Elo ufänken ze trainéieren</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding:24px 0 0">
+  <div class="wrap">
+    <a class="rank" href="https://civiclearn.com/passport-ranking">
+      <span class="rank-tag">PASS-KLASSEMENT</span>
+      <span><strong>Lëtzebuerg huet de 6. beschte Pass vun der Welt</strong> — no deem wat wierklech zielt.</span>
+      <span class="rank-go">Kuck d'Klassement →</span>
+    </a>
+    <div class="devices" aria-label="Kompatibel mat allen Apparater a modernen Browseren">
+      <span class="sr-only">Kompatibel mat allen Apparater a modernen Browseren</span>
+      <span><img src="/assets/images/logos/windows.svg" alt="">Windows</span>
+      <span><img src="/assets/images/logos/macos.svg" alt="">macOS</span>
+      <span><img src="/assets/images/logos/android.svg" alt="">Android</span>
+      <span><img src="/assets/images/logos/ios.svg" alt="">iPhone / iPad</span>
+      <span><img src="/assets/images/logos/chrome.svg" alt="">Chrome</span>
+      <span><img src="/assets/images/logos/safari.svg" alt="">Safari</span>
+      <span><img src="/assets/images/logos/firefox.svg" alt="">Firefox</span>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="site-footer">
-  <div class="footer-inner">
+<footer class="foot">
+  <div class="wrap">
     <div>© <span id="footer-year">2026</span> Sproochentest.org — Member vum CivicLearn-Netzwierk.</div>
-    <div class="footer-links">
+    <nav>
       <a href="https://civiclearn.com/insights">Insights</a>
       <a href="/gratis-test/">Gratis Test</a>
       <a href="/artikelen/">Artikelen</a>
       <a href="/kontakt/">Kontakt</a>
       <a href="/politiken/">Politiken</a>
-    </div>
+    </nav>
   </div>
 </footer>
 
 <script src="/assets/js/hometest-sproochentest.js"></script>
+<script src="https://civiclearn.com/assets/js/presale-quiz.js?v=1"></script>
 
 <script>
 document.querySelectorAll(".faq-item").forEach(item=>{
@@ -594,5 +516,22 @@ document.addEventListener("DOMContentLoaded",updateSproochentestStatus);
 })();
 </script>
 
+<!-- Mobile sticky CTA (appears once the hero button scrolls away, hides over the quiz and pricing) -->
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+  <span id="v2Sticky"><b>69 €, eemoleg</b>Zougang fir ëmmer</span>
+  <a href="https://civiclearn.com/sproochentest/checkout.html" class="btn btn-primary" tabindex="-1" id="v2StickyBtn">Ufänken</a>
+</div>
+
+<script>
+(function(){
+  var s=document.getElementById('sticky-cta'), h=document.querySelector('.hero-ctas .btn-primary'), p=document.getElementById('pricing'), q=document.getElementById('free-questions');
+  if(!('IntersectionObserver' in window)||!s||!h) return;
+  var heroGone=false, priceVisible=false, quizVisible=false;
+  function upd(){var on=heroGone&&!priceVisible&&!quizVisible;s.classList.toggle('show',on);s.setAttribute('aria-hidden',on?'false':'true');}
+  new IntersectionObserver(function(e){heroGone=!e[0].isIntersecting&&e[0].boundingClientRect.top<0;upd();}).observe(h);
+  if(p) new IntersectionObserver(function(e){priceVisible=e[0].isIntersecting;upd();},{threshold:.15}).observe(p);
+  if(q) new IntersectionObserver(function(e){quizVisible=e[0].isIntersecting;upd();},{threshold:.05}).observe(q);
+})();
+</script>
 </body>
 </html>
